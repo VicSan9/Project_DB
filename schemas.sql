@@ -1,14 +1,14 @@
 CREATE TABLE miembros (
 	id integer NOT NULL PRIMARY KEY,
-	nombre varchar (50) NOT NULL,
+	nombre varchar (20) NOT NULL,
 	telefono integer NOT NULL,
-	direccion varchar (50) NOT NULL
+	direccion varchar (20) NOT NULL
 );
 
 CREATE TABLE administrador (
 	id_admin integer NOT NULL,
 	id integer NOT NULL,
-	PRIMARY KEY (id_admin, id)
+	PRIMARY KEY (id_admin, id),
 	FOREIGN KEY (id) REFERENCES miembros (id)
 );
 
@@ -25,10 +25,11 @@ CREATE TABLE transacciones (
 	FOREIGN KEY (id) REFERENCES miembros (id)
 );
 
+
 CREATE TABLE productos (
 	codigo integer NOT NULL PRIMARY KEY,
-	nombre varchar (50) NOT NULL,
-	p_venta_u integer NOT NUL,
+	nombre varchar (20) NOT NULL,
+	p_venta_u integer NOT NULL,
 	p_compra_u integer NOT NULL,
 	descripcion varchar (100) NOT NULL,
 	cantidad integer NOT NULL	
@@ -42,7 +43,6 @@ CREATE TABLE transaccionProductos (
 	FOREIGN KEY (codigo) REFERENCES productos (codigo)
 );
 
---El computador de Mercy no funciona, el mio si :)
 
---grosero
+
 
