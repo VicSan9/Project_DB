@@ -25,6 +25,7 @@ CREATE TABLE transacciones (
 	FOREIGN KEY (id) REFERENCES miembros (id)
 );
 
+
 CREATE TABLE productos (
 	codigo integer NOT NULL PRIMARY KEY,
 	nombre varchar (20) NOT NULL,
@@ -41,3 +42,6 @@ CREATE TABLE transaccionProductos (
 	FOREIGN KEY (num_unico) REFERENCES transacciones (num_unico),
 	FOREIGN KEY (codigo) REFERENCES productos (codigo)
 );
+
+--El computador de Mercy no funciona, el mio si :) 
+
