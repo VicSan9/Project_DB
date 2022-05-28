@@ -43,5 +43,7 @@ CREATE TABLE transaccionProductos (
 	FOREIGN KEY (codigo) REFERENCES productos (codigo)
 );
 
---El computador de Mercy no funciona, el mio si :) 
+--El computador de Mercy no funciona, el mio si :)
+
+--grosero
 
