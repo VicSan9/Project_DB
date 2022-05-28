@@ -24,6 +24,28 @@ CREATE TABLE miembros (
   	PRIMARY KEY (id_miembro, cc)
 );
 
+CREATE TABLE administrador (
+	id_admin integer NOT NULL,
+	id integer NOT NULL,
+	PRIMARY KEY (id_admin, id),
+	FOREIGN KEY (id) REFERENCES miembros (id)
+);
+
+CREATE TABLE vendedores (
+	id_vendedor integer NOT NULL,
+	id integer NOT NULL,
+	PRIMARY KEY (id_vendedor, id),
+	FOREIGN KEY (id) REFERENCES miembros (id)
+);
+
+CREATE TABLE transacciones (
+	num_unico integer UNIQUE NOT NULL,
+	fecha time NOT NULL,
+	id integer NOT NULL,
+	PRIMARY KEY (num_unico, id),
+	FOREIGN KEY (id) REFERENCES miembros (id)
+);
+
 CREATE TABLE productos (
 	codigo integer PRIMARY KEY DEFAULT nextval('id_prod_seq'),
 	nombre varchar (50) NOT NULL,
@@ -77,7 +99,6 @@ CREATE TABLE transaccionProducto (
 	FOREIGN KEY (codigo) REFERENCES productos (codigo)
 ); 
 
-
 CREATE TABLE productoProovedor (
 	id_proovedor INTEGER NOT NULL,
   	codigo INTEGER NOT NULL,
@@ -85,3 +106,4 @@ CREATE TABLE productoProovedor (
   	FOREIGN KEY (id_proovedor) REFERENCES proovedores(id_proovedor),
   	FOREIGN KEY (codigo) REFERENCES productos(codigo)
 );
+
