@@ -10,3 +10,7 @@ CREATE TABLE administrador (
 	id_miembro integer NOT NULL,
 	FOREIGN KEY (id_miembro) REFERENCES miembros (id_miembro)
 );
+
+CREATE TABLE vendedores (
+
+);
