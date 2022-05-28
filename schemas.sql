@@ -1,8 +1,8 @@
 CREATE TABLE miembros (
 	id integer NOT NULL PRIMARY KEY,
-	nombre varchar (20) NOT NULL,
+	nombre varchar (50) NOT NULL,
 	telefono integer NOT NULL,
-	direccion varchar (20) NOT NULL
+	direccion varchar (50) NOT NULL
 );
 
 CREATE TABLE administrador (
@@ -32,7 +32,7 @@ SELECT * FROM transacciones;
 
 CREATE TABLE productos (
 	codigo integer NOT NULL PRIMARY KEY,
-	nombre varchar (20) NOT NULL,
+	nombre varchar (50) NOT NULL,
 	p_venta_u integer NOT NULL,
 	p_compra_u integer NOT NULL,
 	descripcion varchar (100) NOT NULL,
