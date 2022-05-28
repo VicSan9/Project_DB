@@ -7,8 +7,8 @@ INSERT INTO vendedores (id_miembro)
 VALUES 	(2110),
 		(2111);
 
-INSERT INTO administrador (id_miembro)
-VALUES 	(2112);
+INSERT INTO administrador (id_miembro, contraseña)
+VALUES 	(2112, '1234');
 
 INSERT into transacciones (fecha, id_miembro)
 VALUES 	('2022/12/31', 2110),
@@ -17,10 +17,10 @@ VALUES 	('2022/12/31', 2110),
         ('2022/12/31', 2112),
         ('2022/12/31', 2111);
 
-INSERT into productos (nombre, p_venta_u, p_compra_u, descripcion, cantidad)
-VALUES 	('Arroz Diana', 1500, 800, 'Arroz Diana 1 libra', 50),
- 		('Doritos', 1500, 1000, 'Fritura de maiz', 20),
- 		('Trululu', 1000, 500, 'Gomitas de osos', 10);
+INSERT into productos (nombre, p_venta_u, p_compra_u, descripcion, cantidad, fecha_vencimiento)
+VALUES 	('Arroz Diana', 1500, 800, 'Arroz Diana 1 libra', 50, '2023/01/15'),
+ 		('Doritos', 1500, 1000, 'Fritura de maiz', 20, '2023/01/15'),
+ 		('Trululu', 1000, 500, 'Gomitas de osos', 10, '2023/01/15');
         
 INSERT into proovedores
 VALUES 	(12214, 'Proovedor 1', 'Proovedor de gomitas', 3176215539, 'Cr.5- No.25-60'),

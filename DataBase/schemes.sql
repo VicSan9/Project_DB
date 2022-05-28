@@ -1,6 +1,6 @@
 --Crear secuencias
 	--Secuencia id de vendedor
-CREATE SEQUENCE if not EXISTs id_vend_seq INCREMENT 1 START 1110;
+CREATE SEQUENCE IF NOT EXISTs id_vend_seq INCREMENT 1 START 1110;
 
 	--Secuencia id de miembro
 CREATE SEQUENCE IF NOT EXISTs id_miemb_seq INCREMENT 1 START 2110;
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTs productos (
 	p_venta_u integer NOT NULL,
 	p_compra_u integer NOT NULL,
 	descripcion varchar (100) NOT NULL,
+	fecha_vencimiento date NOT NULL,
 	cantidad integer NOT NULL	
 );
 
@@ -44,6 +45,7 @@ CREATE TABLE IF NOT EXISTs proovedores (
 CREATE TABLE IF NOT EXISTs administrador (
 	id_admin serial PRIMARY KEY,
 	id_miembro integer NOT NULL,
+	contraseña varchar (50) NOT NULL,
 	FOREIGN KEY (id_miembro) REFERENCES miembros (id_miembro)
 );
 
