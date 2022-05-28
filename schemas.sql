@@ -24,4 +24,4 @@ CREATE TABLE transacciones (
 	FOREIGN KEY (id) REFERENCES miembros (id)
 );
 
---El computador de Mercy no funciona, el mio si :)
+--El computador de Mercy no funciona, el mio si :) 
