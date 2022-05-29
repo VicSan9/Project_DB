@@ -9,7 +9,7 @@ app.use(morgan('dev'))
 
 app.use(taskRoutes);
 
-const port = 4000;
+const port = 3000;
 
 app.listen(port)
 console.log('Server on port ' + port)
