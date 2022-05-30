@@ -1,3 +1,4 @@
+--Crear base de datos
 CREATE DATABASE backpackdb;
 
 --Crear secuencias
@@ -31,6 +32,7 @@ CREATE TABLE IF NOT EXISTs productos (
 	nombre varchar (50) NOT NULL,
 	p_venta_u integer NOT NULL,
 	p_compra_u integer NOT NULL,
+	lote  varchar (50) NOT NULL,
 	descripcion varchar (100) NOT NULL,
 	fecha_vencimiento date NOT NULL,
 	cantidad integer NOT NULL	
@@ -45,7 +47,7 @@ CREATE TABLE IF NOT EXISTs proovedores (
 );
 
 CREATE TABLE IF NOT EXISTs administrador (
-	id_admin serial PRIMARY KEY,
+	id_admin integer PRIMARY KEY,
 	id_miembro integer NOT NULL,
 	contraseña varchar (50) NOT NULL,
 	FOREIGN KEY (id_miembro) REFERENCES miembros (id_miembro)
