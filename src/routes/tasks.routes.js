@@ -1,25 +1,23 @@
 const { Router } = require('express');
+const { 
+    getAllTasks, 
+    getTask, 
+    createTask, 
+    deleteTask, 
+    updateTask 
+} = require('../controllers/tasks.controller')
+
 
 const router = Router();
 
-router.get('/tasks', (req, res) => {
-    res.send('Retornando una lista de tareas');
-})
+router.get('/tasks', getAllTasks)
 
-router.get('/tasks/10', (req, res) => {
-    res.send('Retornando una sola tarea');
-})
+router.get('/tasks/10', getTask)
 
-router.post('/tasks', (req, res) => {
-    res.send('Creando una tarea');
-})
+router.post('/tasks', createTask)
 
-router.delete('/tasks', (req, res) => {
-    res.send('Eliminando una tarea');
-})
+router.delete('/tasks', deleteTask)
 
-router.put('/tasks', (req, res) => {
-    res.send('Actualizando una tarea');
-})
+router.put('/tasks', updateTask)
 
 module.exports = router;

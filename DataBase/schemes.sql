@@ -1,3 +1,5 @@
+CREATE DATABASE backpackdb;
+
 --Crear secuencias
 	--Secuencia id de vendedor
 CREATE SEQUENCE IF NOT EXISTs id_vend_seq INCREMENT 1 START 1110;
