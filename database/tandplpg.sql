@@ -30,9 +30,13 @@ EXECUTE PROCEDURE function_insert_info();
 
 --Vista final de los informes
 CREATE VIEW end_view_info AS
-SELECT P.nombre, I.total_costos, I.total_ventas, I.utilidad
+SELECT P.nombre, 
+	   SUM(I.total_costos) AS total_de_costos, 
+	   SUM(I.total_ventas) AS total_de_ventas, 
+	   SUM(I.utilidad) AS total_de_utilidad
 FROM informes AS I
 JOIN productos AS P
-ON I.codigo_producto = P.codigo;
+ON I.codigo_producto = P.codigo
+GROUP BY nombre;
 
 
