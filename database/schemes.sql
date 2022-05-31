@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTs productos (
 	lote  VARCHAR (50) NOT NULL,
 	descripcion VARCHAR (100) NOT NULL,
 	fecha_vencimiento DATE NOT NULL,
-	cantidad INTEGER NOT NULL	
+	stack INTEGER NOT NULL	
 );
 
 CREATE TABLE IF NOT EXISTs proovedores (
