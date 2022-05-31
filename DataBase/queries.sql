@@ -8,3 +8,4 @@ SELECT * FROM proovedores;
 SELECT * FROM informes;
 SELECT * FROM productoproovedor;
 SELECT * FROM transaccionproducto;
+SELECT * FROM end_view_info; 

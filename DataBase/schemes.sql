@@ -1,5 +1,5 @@
 --Crear base de datos
-CREATE DATABASE backpackdb;
+--CREATE DATABASE backpackdb;
 
 --Crear secuencias
 	--Secuencia id de vendedor
@@ -72,14 +72,17 @@ CREATE TABLE IF NOT EXISTs informes (
   	total_costos INTEGER NOT NULL,
   	total_ventas INTEGER NOT NULL,
   	num_unico INTEGER NOT NULL,
-  	FOREIGN KEY (num_unico) REFERENCES transacciones(num_unico)
+	codigo_producto INTEGER NOT NULL,
+  	FOREIGN KEY (num_unico) REFERENCES transacciones(num_unico),
+	FOREIGN KEY (codigo_producto) REFERENCES productos(codigo)
 );
 
 CREATE TABLE IF NOT EXISTs transaccionProducto (
+	id_tp SERIAL NOT NULL,
 	num_unico INTEGER NOT NULL,
 	codigo INTEGER NOT NULL,
   	cantidad_comprada INTEGER NOT NULL,
-	PRIMARY KEY (num_unico, codigo),
+	PRIMARY KEY (id_tp, num_unico, codigo),
 	FOREIGN KEY (num_unico) REFERENCES transacciones (num_unico),
 	FOREIGN KEY (codigo) REFERENCES productos (codigo)
 ); 

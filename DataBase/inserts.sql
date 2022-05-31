@@ -30,13 +30,9 @@ VALUES 	(12125, 3111),
 		(12214, 3112),
         (12512, 3110);
         
-INSERT INTO transaccionproducto
-VALUES 	(4110, 3110, 4),
-		(4110, 3111, 2),
-		(4110, 3112, 3);
-        
-INSERT INTO transaccionproducto
-VALUES 	(4111, 3112, 4);
-
-INSERT INTO transaccionproducto
-VALUES 	(4112, 3110, 4);  
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4110, 3110, 4);
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4110, 3111, 2);		
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4110, 3112, 3);      
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4111, 3112, 4);
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4111, 3111, 4);
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4112, 3110, 4);  
