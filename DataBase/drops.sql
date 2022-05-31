@@ -1,3 +1,12 @@
+--Eliminar vista 
+DROP VIEW end_view_info;
+
+--Eliminar triggers
+DROP TRIGGER trigger_function_insert_info on transaccionproducto;
+
+--Eliminar funciones 
+DROP FUNCTION function_insert_info;
+
 --Eliminar tablas
 DROP TABLE vendedores, administrador, miembros, productos, 
 		   transaccionproducto, transacciones, vendedores,

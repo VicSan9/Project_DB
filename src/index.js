@@ -1,13 +1,14 @@
 const express = require('express');
 const morgan = require('morgan');
 
-const taskRoutes = require('./routes/tasks.routes')
+const productRoutes = require('./routes/product.routes')
 
 const app = express();
 
 app.use(morgan('dev'))
+app.use(express.json())
 
-app.use(taskRoutes);
+app.use(productRoutes);
 
 const port = 4000;
 

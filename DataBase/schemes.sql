@@ -19,23 +19,23 @@ CREATE SEQUENCE IF NOT EXISTs cod_info_seq INCREMENT 1 START 5110;
 
 --Crear tablas
 CREATE TABLE IF NOT EXISTs miembros (
-	id_miembro integer UNIQUE DEFAULT nextval('id_miemb_seq'),
+	id_miembro INTEGER UNIQUE DEFAULT nextval('id_miemb_seq'),
   	cc BIGINT UNIQUE,
-	nombre varchar (50) NOT NULL,
+	nombre VARCHAR (50) NOT NULL,
 	telefono BIGINT NOT NULL,
-	direccion varchar (50) NOT NULL,
+	direccion VARCHAR (50) NOT NULL,
   	PRIMARY KEY (id_miembro, cc)
 );
 
 CREATE TABLE IF NOT EXISTs productos (
-	codigo integer PRIMARY KEY DEFAULT nextval('id_prod_seq'),
-	nombre varchar (50) NOT NULL,
-	p_venta_u integer NOT NULL,
-	p_compra_u integer NOT NULL,
-	lote  varchar (50) NOT NULL,
-	descripcion varchar (100) NOT NULL,
-	fecha_vencimiento date NOT NULL,
-	cantidad integer NOT NULL	
+	codigo INTEGER PRIMARY KEY DEFAULT nextval('id_prod_seq'),
+	nombre VARCHAR (50) NOT NULL,
+	p_venta_u INTEGER NOT NULL,
+	p_compra_u INTEGER NOT NULL,
+	lote  VARCHAR (50) NOT NULL,
+	descripcion VARCHAR (100) NOT NULL,
+	fecha_vencimiento DATE NOT NULL,
+	cantidad INTEGER NOT NULL	
 );
 
 CREATE TABLE IF NOT EXISTs proovedores (
@@ -47,37 +47,38 @@ CREATE TABLE IF NOT EXISTs proovedores (
 );
 
 CREATE TABLE IF NOT EXISTs administrador (
-	id_admin integer PRIMARY KEY,
-	id_miembro integer NOT NULL,
-	contraseña varchar (50) NOT NULL,
+	id_admin INTEGER PRIMARY KEY,
+	id_miembro INTEGER NOT NULL,
+	contraseña VARCHAR (50) NOT NULL,
 	FOREIGN KEY (id_miembro) REFERENCES miembros (id_miembro)
 );
 
 CREATE TABLE IF NOT EXISTs vendedores (
-	id_vendedor integer PRIMARY KEY DEFAULT nextval('id_vend_seq'),
-	id_miembro integer NOT NULL,
+	id_vendedor INTEGER PRIMARY KEY DEFAULT nextval('id_vend_seq'),
+	id_miembro INTEGER NOT NULL,
 	FOREIGN KEY (id_miembro) REFERENCES miembros (id_miembro)
 );
 
 CREATE TABLE IF NOT EXISTs transacciones (
-	num_unico integer PRIMARY KEY DEFAULT nextval('id_transac_seq'),
+	num_unico INTEGER PRIMARY KEY DEFAULT nextval('id_transac_seq'),
 	fecha DATE NOT NULL,
-	id_miembro integer NOT NULL,
+	id_miembro INTEGER NOT NULL,
 	FOREIGN KEY (id_miembro) REFERENCES miembros (id_miembro)
 );
 
 CREATE TABLE IF NOT EXISTs informes (
 	codigo INTEGER PRIMARY KEY DEFAULT nextval('cod_info_seq'),
-  	ultilidad INTEGER not NULL,
-  	total_costos INTEGER not NULL,
-  	total_ventas INTEGER not NULL,
-  	num_unico INTEGER not NULL,
+  	utilidad INTEGER NOT NULL,
+  	total_costos INTEGER NOT NULL,
+  	total_ventas INTEGER NOT NULL,
+  	num_unico INTEGER NOT NULL,
   	FOREIGN KEY (num_unico) REFERENCES transacciones(num_unico)
 );
 
 CREATE TABLE IF NOT EXISTs transaccionProducto (
-	num_unico integer NOT NULL,
-	codigo integer NOT NULL,
+	num_unico INTEGER NOT NULL,
+	codigo INTEGER NOT NULL,
+  	cantidad_comprada INTEGER NOT NULL,
 	PRIMARY KEY (num_unico, codigo),
 	FOREIGN KEY (num_unico) REFERENCES transacciones (num_unico),
 	FOREIGN KEY (codigo) REFERENCES productos (codigo)
