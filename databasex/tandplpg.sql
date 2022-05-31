@@ -2,7 +2,6 @@
 CREATE OR REPLACE FUNCTION function_insert_info()
 RETURNS TRIGGER AS $function_insert_info$
 DECLARE 
-    
     numUnico INTEGER = (SELECT num_unico 
 						 FROM transaccionproducto AS TP 
 						 ORDER BY TP.id_tp DESC LIMIT 1);
@@ -18,8 +17,7 @@ DECLARE
 	utilidad INTEGER = totalVentas - totalCostos;					   
 BEGIN
 	INSERT INTO informes (total_costos, total_ventas, utilidad, num_unico, codigo_producto)
-	VALUES 	(totalCostos, totalVentas, utilidad, numUnico, codigoProducto);
-	
+	VALUES 	(totalCostos, totalVentas, utilidad, numUnico, codigoProducto);	
 RETURN NEW;
 END
 $function_insert_info$ LANGUAGE plpgsql;
