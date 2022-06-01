@@ -1,5 +1,5 @@
-const { confing, config } = require('dotenv')
-config()
+const { confing, config } = require('dotenv');
+config();
 
 module.exports = {
     db: {

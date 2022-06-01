@@ -1,4 +1,4 @@
-const pool = require ('../db')
+const pool = require ('../db');
 
 const getAllProducts = async (req, res, next) => {
     try {
@@ -18,7 +18,7 @@ const getProduct = async (req, res, next) => {
         if (result.rows.length === 0)
             return res.status(404).json({
                 message: "Producto no encontrado",
-            })
+            });
         res.json(result.rows[0]);
     } catch (error) {
         next(error);
@@ -45,7 +45,7 @@ const deleteProduct = async (req, res, next) => {
         if (result.rows.length === 0)
             return res.status(404).json({
                 message: "Producto no encontrado",
-            })
+            });
         return res.sendStatus(204);
     } catch (error) {
         next(error);

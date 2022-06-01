@@ -1,5 +1,5 @@
-const { Pool } = require('pg')
-const { db } = require('./confing')
+const { Pool } = require('pg');
+const { db } = require('./confing');
 
 const pool = new Pool({
     user: db.user,
