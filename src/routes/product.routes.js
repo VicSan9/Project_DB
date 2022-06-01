@@ -11,12 +11,12 @@ const router = Router();
 
 router.get('/products', getAllProducts)
 
-router.get('/products/10', getProduct)
+router.get('/products/:id', getProduct)
 
 router.post('/products', createProduct)
 
-router.delete('/products', deleteProduct)
+router.delete('/products/:id', deleteProduct)
 
-router.put('/products', updateProduct)
+router.put('/products/:id', updateProduct)
 
 module.exports = router;

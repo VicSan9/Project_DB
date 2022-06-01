@@ -1,12 +1,12 @@
-const {Pool} = require('pg')
+const { Pool } = require('pg')
+const { db } = require('./confing')
 
 const pool = new Pool({
-    user: 'postgres',
-    password: '31680069',
-    host: 'localhost',
-    port: 5432,
-    database: 'backpackdb',
+    user: db.user,
+    password: db.password,
+    host: db.host,
+    port: db.port,
+    database: db.database
 });
-
 
 module.exports = pool;
