@@ -6,7 +6,7 @@ const productRoutes = require('./routes/product.routes');
 const reportRoutes = require('./routes/report.routes');
 const memberRoutes = require('./routes/members.routes');
 const administratorRoutes = require('./routes/administrators.routes');
-//import de vendedor
+const sellerRoutes = require('./routes/sellers.routes');
 //import de transferencia
 const suppliersRoutes = require('./routes/supplier.routes');
 //import de transferenciaProducto
@@ -22,7 +22,7 @@ app.use(productRoutes);
 app.use(reportRoutes);
 app.use(memberRoutes);
 app.use(administratorRoutes);
-//vendedor
+app.use(sellerRoutes);
 //transferencia
 app.use(suppliersRoutes);
 //transferenciaProducto
