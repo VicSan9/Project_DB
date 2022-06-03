@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTs transaccionProducto (
 	FOREIGN KEY (codigo) REFERENCES productos (codigo)
 ); 
 
-CREATE TABLE IF NOT EXISTs productoProovedor (
+CREATE TABLE IF NOT EXISTs productoProveedor (
 	id_proveedor INTEGER NOT NULL,
   	codigo INTEGER NOT NULL,
   	PRIMARY KEY (id_proveedor, codigo),
