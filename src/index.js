@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const productRoutes = require('./routes/product.routes');
 const reportRoutes = require('./routes/report.routes');
-//import de miembros  <- los miembros aqui rosa
+const memberRoutes = require('./routes/members.routes');
 //import de administrador
 //import de vendedor
 //import de transferencia
@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.use(productRoutes);
 app.use(reportRoutes);
-//miembros
+app.use(memberRoutes);
 //administrador
 //vendedor
 //transferencia
