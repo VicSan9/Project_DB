@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTs productos (
 	stack INTEGER NOT NULL	
 );
 
-CREATE TABLE IF NOT EXISTs proovedores (
-	id_proovedor INTEGER PRIMARY KEY,
+CREATE TABLE IF NOT EXISTs proveedores (
+	id_proveedor INTEGER PRIMARY KEY,
   	nombre VARCHAR (50) not NULL,
   	descripcion VARCHAR (100) not NULL,
   	telefono BIGINT NOT NULL,
@@ -88,9 +88,9 @@ CREATE TABLE IF NOT EXISTs transaccionProducto (
 ); 
 
 CREATE TABLE IF NOT EXISTs productoProovedor (
-	id_proovedor INTEGER NOT NULL,
+	id_proveedor INTEGER NOT NULL,
   	codigo INTEGER NOT NULL,
-  	PRIMARY KEY (id_proovedor, codigo),
-  	FOREIGN KEY (id_proovedor) REFERENCES proovedores(id_proovedor),
+  	PRIMARY KEY (id_proveedor, codigo),
+  	FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor),
   	FOREIGN KEY (codigo) REFERENCES productos(codigo)
 );

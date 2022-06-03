@@ -20,7 +20,7 @@ VALUES 	('Arroz Diana', 1500, 800, '27145', 'Arroz Diana 1 libra', 50, '2023/01/
  		('Doritos', 1500, 1000, '21544', 'Fritura de maiz', 20, '2023/01/15'),
  		('Trululu', 1000, 500, '25236', 'Gomitas de osos', 10, '2023/01/15');
         
-INSERT INTO proovedores
+INSERT INTO proveedores
 VALUES 	(12214, 'Proovedor 1', 'Proovedor de gomitas', 3176215539, 'Cr.5- No.25-60'),
 		(12125, 'Proovedor 2', 'Proovedor de frituras', 3215591266, 'Cr.25- No 55-21N'),
         (12512, 'Proovedor 3', 'Proovedor de alimentos', 3215125126, 'Cr.32-No. 23-12');

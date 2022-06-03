@@ -8,7 +8,7 @@ const reportRoutes = require('./routes/report.routes');
 //import de administrador
 //import de vendedor
 //import de transferencia
-//import de proveedor
+const suppliersRoutes = require('./routes/supplier.routes');
 //import de transferenciaProducto
 //import de productoProveedor
 
@@ -24,7 +24,7 @@ app.use(reportRoutes);
 //administrador
 //vendedor
 //transferencia
-//proveedor
+app.use(suppliersRoutes);
 //transferenciaProducto
 //productoProveedor
 
