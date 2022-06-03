@@ -17,6 +17,9 @@ CREATE SEQUENCE IF NOT EXISTs id_transac_seq INCREMENT 1 START 4110;
 	--Secuencia codigo de informes 
 CREATE SEQUENCE IF NOT EXISTs cod_info_seq INCREMENT 1 START 5110;
 
+	--Secuencia id de admin
+CREATE SEQUENCE IF NOT EXISTs id_admin_seq INCREMENT 1 START 6110;
+
 --Crear tablas
 CREATE TABLE IF NOT EXISTs miembros (
 	id_miembro INTEGER UNIQUE DEFAULT nextval('id_miemb_seq'),
@@ -47,9 +50,10 @@ CREATE TABLE IF NOT EXISTs proveedores (
 );
 
 CREATE TABLE IF NOT EXISTs administrador (
-	id_admin INTEGER PRIMARY KEY,
+	id_admin INTEGER PRIMARY KEY DEFAULT nextval('id_admin_seq'),
 	id_miembro INTEGER NOT NULL,
 	contraseña VARCHAR (50) NOT NULL,
+	user_admin VARCHAR (50) NOT NULL,
 	FOREIGN KEY (id_miembro) REFERENCES miembros (id_miembro)
 );
 

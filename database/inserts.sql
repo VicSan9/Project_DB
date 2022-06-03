@@ -7,8 +7,8 @@ INSERT INTO vendedores (id_miembro)
 VALUES 	(2110),
 		(2111);
 
-INSERT INTO administrador (id_admin, id_miembro, contraseña)
-VALUES 	(9110, 2112, '1234');
+INSERT INTO administrador (id_miembro, contraseña, user_admin)
+VALUES 	(2112, '1234', 'Mercy09');
 
 INSERT INTO transacciones (fecha, id_miembro)
 VALUES 	('2022/12/31', 2110),
