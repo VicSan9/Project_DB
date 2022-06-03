@@ -7,10 +7,14 @@ const productRoutes = require('./routes/product.routes');
 //import de miembros
 //import de administrador
 //import de vendedor
-//import de transferencia
+//import de transaccion
+const transactionRoutes = require('./routes/transaction.routes')
 //import de proveedor
-//import de transferenciaProducto
+//import de transaccionProducto
+const transactionproductRoutes = require('./routes/transactionproduct.routes')
 //import de productoProveedor
+const productsupplierRoutes = require('./routes/productsupplier.routes')
+
 
 const app = express();
 
@@ -23,10 +27,14 @@ app.use(productRoutes);
 //miembros
 //administrador
 //vendedor
-//transferencia
+//transaccion
+app.use(transactionRoutes);
 //proveedor
-//transferenciaProducto
+//transaccionProducto
+app.use(transactionproductRoutes);
 //productoProveedor
+app.use(productsupplierRoutes);
+
 
 app.use((err, req, res, next) => {
     return res.json({

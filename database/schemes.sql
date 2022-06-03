@@ -87,10 +87,10 @@ CREATE TABLE IF NOT EXISTs transaccionProducto (
 	FOREIGN KEY (codigo) REFERENCES productos (codigo)
 ); 
 
-CREATE TABLE IF NOT EXISTs productoProovedor (
+CREATE TABLE IF NOT EXISTs productoProveedor (
 	id_proovedor INTEGER NOT NULL,
   	codigo INTEGER NOT NULL,
   	PRIMARY KEY (id_proovedor, codigo),
-  	FOREIGN KEY (id_proovedor) REFERENCES proovedores(id_proovedor),
+  	FOREIGN KEY (id_proovedor) REFERENCES proveedores(id_proovedor),
   	FOREIGN KEY (codigo) REFERENCES productos(codigo)
 );

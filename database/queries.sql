@@ -6,6 +6,6 @@ SELECT * FROM transacciones;
 SELECT * FROM productos;
 SELECT * FROM proovedores;
 SELECT * FROM informes;
-SELECT * FROM productoproovedor;
+SELECT * FROM productoProveedor;
 SELECT * FROM transaccionproducto;
 SELECT * FROM end_view_info; 
