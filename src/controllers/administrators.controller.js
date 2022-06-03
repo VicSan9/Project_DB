@@ -26,7 +26,7 @@ const getAdministrator = async (req, res, next) => {
 }
 
 const createAdministrator = async (req, res, next) => {
-    const {id_miembro, contraseña} = req.body;
+    const {id_miembro, contraseña, user_admin} = req.body;
     try {
         const result = await pool.query
             ('INSERT INTO administrador (id_miembro, contraseña, user_admin) VALUES ($1, $2, $3) RETURNING *',
