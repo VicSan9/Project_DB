@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const productRoutes = require('./routes/product.routes');
-//import de informes
+const reportRoutes = require('./routes/report.routes');
 //import de miembros
 //import de administrador
 //import de vendedor
@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use(productRoutes);
-//informes
+app.use(reportRoutes);
 //miembros
 //administrador
 //vendedor
