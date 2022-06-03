@@ -6,11 +6,11 @@ const productRoutes = require('./routes/product.routes');
 const reportRoutes = require('./routes/report.routes');
 const memberRoutes = require('./routes/members.routes');
 const administratorRoutes = require('./routes/administrators.routes');
-//vendedor
-const transactionRoutes = require('./routes/transaction.routes')
-const transactionproductRoutes = require('./routes/transactionproduct.routes')
-const productsupplierRoutes = require('./routes/productsupplier.routes')
-
+//import de vendedor
+//import de transferencia
+const suppliersRoutes = require('./routes/supplier.routes');
+//import de transferenciaProducto
+//import de productoProveedor
 
 const app = express();
 
@@ -23,10 +23,10 @@ app.use(reportRoutes);
 app.use(memberRoutes);
 app.use(administratorRoutes);
 //vendedor
-app.use(transactionRoutes);
-app.use(transactionproductRoutes);
-app.use(productsupplierRoutes);
-
+//transferencia
+app.use(suppliersRoutes);
+//transferenciaProducto
+//productoProveedor
 
 app.use((err, req, res, next) => {
     return res.json({

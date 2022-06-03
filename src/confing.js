@@ -1,4 +1,4 @@
-const { confing, config } = require('dotenv');
+const { config } = require('dotenv');
 config();
 
 module.exports = {
