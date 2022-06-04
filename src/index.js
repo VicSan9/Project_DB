@@ -8,7 +8,6 @@ const memberRoutes = require('./routes/members.routes');
 const administratorRoutes = require('./routes/administrators.routes');
 const sellerRoutes = require('./routes/sellers.routes');
 const transactionRoutes = require('./routes/transaction.routes')
-//import de vendedor
 const suppliersRoutes = require('./routes/supplier.routes');
 const transactionproductRoutes = require ('./routes/transactionproduct.routes')
 const productsupplierRoutes = require('./routes/productsupplier.routes')
@@ -25,7 +24,6 @@ app.use(memberRoutes);
 app.use(administratorRoutes);
 app.use(sellerRoutes);
 app.use(transactionRoutes);
-//vendedor
 app.use(suppliersRoutes);
 app.use(transactionproductRoutes);
 app.use(productsupplierRoutes);
