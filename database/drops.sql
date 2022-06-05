@@ -1,5 +1,5 @@
 --Eliminar vista 
-DROP VIEW end_view_info;
+DROP VIEW end_view_info, product_to_expire, inventory;
 
 --Eliminar triggers
 DROP TRIGGER trigger_function_insert_info on transaccionproducto;
@@ -14,6 +14,5 @@ DROP TABLE vendedores, administrador, miembros, productos,
 
 --Eliminar secuencias
 DROP SEQUENCE id_vend_seq, id_miemb_seq, id_prod_seq,
-		      id_transac_seq, cod_info_seq;
-			  
+		      id_transac_seq, cod_info_seq;	
 			  
