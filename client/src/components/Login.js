@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import { Button, Card, CardContent, Grid, TextField, Typography } from "@mui/material";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+
+  const navigate = useNavigate()
 
   const [login, setLogin] = useState({ user: '', password: '' })
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(login);
-  try {
+
     const res = await fetch('http://localhost:4000/administrators/login', {
       method: 'POST',
       body: JSON.stringify(login),
-      headers: {"content-Type": "application/json"}
-    })  
+        headers: { "content-Type": "application/json" }
+      })  
 
     const data = await res.json()
     console.log(data)
-  } catch (error) {
-    console.log(error)
-  }
     
+    if (res.status === 200){
+      navigate("/")
+    }
   }
 
   const handleChange = e => {
