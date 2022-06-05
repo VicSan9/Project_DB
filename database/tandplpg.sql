@@ -39,5 +39,14 @@ JOIN productos AS P
 ON I.codigo_producto = P.codigo
 GROUP BY nombre;
 
+--vista productos proximos a vencerse
+CREATE VIEW product_to_expire AS
+SELECT p.nombre, p.lote, p.fecha_vencimiento
+FROM productos AS p
+WHERE p.fecha_vencimiento <= current_date + 30;
 
+--vista inventario 
+CREATE VIEW inventory as
+SELECT p.nombre, p.descripcion, p.lote, p.fecha_vencimiento
+from productos as p;
 
