@@ -30,7 +30,7 @@ app.use(productsupplierRoutes);
 
 app.use((err, req, res, next) => {
     return res.json({
-        message: err.message
+        message: err
     });
 });
 

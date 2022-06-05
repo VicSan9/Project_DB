@@ -5,6 +5,7 @@ const {
     createAdministrator,
     deleteAdministrator,
     updateAdministrator,
+    loginAdministrator
 } = require('../controllers/administrators.controller');
 
 const router = Router();
@@ -18,5 +19,7 @@ router.post('/administrators', createAdministrator);
 router.delete('/administrators/:id', deleteAdministrator);
 
 router.put('/administrators/:id', updateAdministrator);
+
+router.post('/administrators/login', loginAdministrator);
 
 module.exports = router;

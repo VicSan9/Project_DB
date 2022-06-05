@@ -1,18 +1,35 @@
+import React, { useState } from "react";
 import { Button, Card, CardContent, Grid, TextField, Typography } from "@mui/material";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 
-export default function login() {
+export default function Login() {
 
- // const [login, setLogin] = useState({
- // })
+  const [login, setLogin] = useState({ user: '', password: '' })
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submit');
+    console.log(login);
+  try {
+    const res = await fetch('http://localhost:4000/administrators/login', {
+      method: 'POST',
+      body: JSON.stringify(login),
+      headers: {"content-Type": "application/json"}
+    })  
+
+    const data = await res.json()
+    console.log(data)
+  } catch (error) {
+    console.log(error)
+  }
+    
   }
 
   const handleChange = e => {
     console.log(e.target.name, e.target.value);
+    setLogin({
+      ...login,
+      [e.target.name]: e.target.value
+    })
   }
 
     return (
@@ -39,6 +56,7 @@ export default function login() {
             }}
           >
             <Typography
+              component="h2"
               color="#000"
               fontSize="20px"
               fontWeight="bold"
@@ -66,11 +84,13 @@ export default function login() {
                   label="User"
                   margin="none"
                   fullWidth
+                  autoFocus
                   sx={{
                     display: 'block',
                     margin: '.8rem 0'
                   }}
                   name="user"
+                  value={login.user}
                   onChange={handleChange}
                 >
                 </TextField>
@@ -86,6 +106,7 @@ export default function login() {
                     margin: '.8rem 0'
                   }}
                   name="password"
+                  value={login.password}
                   onChange={handleChange}
                 >
                 </TextField>

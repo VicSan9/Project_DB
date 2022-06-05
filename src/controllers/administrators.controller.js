@@ -69,10 +69,27 @@ const updateAdministrator = async (req, res, next) => {
     }
 }
 
+const loginAdministrator = async (req, res, next) => {
+    const { user, password } = req.body;
+    try {
+        const result = await pool.query(
+            'SELECT FROM administrador WHERE user_admin = $1 AND contraseña = $2',
+            [user, password]);
+        if (result.rows.length === 0)
+            return res.status(404).json({
+                message: "Administrador no encontrado",
+            });
+        return res.json(result.rows[0]);
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     getAllAdministrators,
     getAdministrator,
     createAdministrator,
     deleteAdministrator,
-    updateAdministrator
+    updateAdministrator,
+    loginAdministrator
 }
