@@ -14,10 +14,7 @@ DROP TABLE vendedores, administrador, miembros, productos,
 
 --Eliminar secuencias
 DROP SEQUENCE id_vend_seq, id_miemb_seq, id_prod_seq,
-<<<<<<< Updated upstream
-		      id_transac_seq, cod_info_seq;	
-=======
 		      id_transac_seq, cod_info_seq, id_admin_seq;
 			  
->>>>>>> Stashed changes
+
 			  
