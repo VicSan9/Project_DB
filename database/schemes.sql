@@ -92,6 +92,7 @@ CREATE TABLE IF NOT EXISTs transaccionProducto (
 ); 
 
 CREATE TABLE IF NOT EXISTs productoProveedor (
+	id_pr SERIAL NOT NULL,
 	id_proveedor INTEGER NOT NULL,
   	codigo INTEGER NOT NULL,
   	PRIMARY KEY (id_proveedor, codigo),

@@ -27,7 +27,7 @@ VALUES 	(12214, 'Proovedor 1', 'Proovedor de gomitas', 3176215539, 'Cr.5- No.25-
 		(12125, 'Proovedor 2', 'Proovedor de frituras', 3215591266, 'Cr.25- No 55-21N'),
         (12512, 'Proovedor 3', 'Proovedor de alimentos', 3215125126, 'Cr.32-No. 23-12');
         
-INSERT INTO productoproveedor
+INSERT INTO productoproveedor (id_proveedor, codigo)
 VALUES 	(12125, 3111),
 		(12214, 3112),
         (12512, 3110);
