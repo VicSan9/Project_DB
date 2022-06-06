@@ -14,7 +14,7 @@ const getTransaction = async (req, res, next) => {
     try {
         const { id } = req.params;
         const result = await pool.query
-            ('SELECT * FROM transacciones WHERE codigo = $1', [id]);
+            ('SELECT * FROM transacciones WHERE num_unico = $1', [id]);
         if (result.rows.length === 0)
             return res.status(404).json({
                 message: "Transaccion no encontrada",
@@ -41,7 +41,7 @@ const deleteTransaction = async (req, res, next) => {
     try {
         const { id } = req.params;
         const result = await pool.query
-            ('DELETE FROM transacciones WHERE codigo = $1 RETURNING *', [id]);
+            ('DELETE FROM transacciones WHERE num_unico = $1 RETURNING *', [id]);
         if (result.rows.length === 0)
             return res.status(404).json({
                 message: "Transaccion no encontrada",
@@ -57,7 +57,7 @@ const updateTransaction = async (req, res, next) => {
     const { fecha, id_miembro} = req.body;
     try {
         const result = await pool.query(
-            'UPDATE transacciones SET fecha = $1, id_miembro = $2 WHERE codigo = $3 RETURNING *',
+            'UPDATE transacciones SET fecha = $1, id_miembro = $2 WHERE num_unico = $3 RETURNING *',
             [fecha, id_miembro, id]);
         if (result.rows.length === 0)
             return res.status(404).json({
