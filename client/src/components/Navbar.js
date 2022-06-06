@@ -1,7 +1,7 @@
 import { AppBar, Box, Container, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function NavbarLayout() {
+export default function Navbar() {
     return (
         <Box>
             <AppBar position='static' sx={{
