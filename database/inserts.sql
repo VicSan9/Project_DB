@@ -10,10 +10,12 @@ VALUES 	(2110),
 INSERT INTO administrador (id_miembro, contraseña, user_admin)
 VALUES 	(2112, '1234', 'Mercy09');
 
-INSERT INTO transacciones (fecha, id_miembro)
-VALUES 	('2022/12/31', 2110),
-		('2022/12/31', 2110),
-		('2022/12/31', 2110);
+INSERT INTO transacciones (fecha, id_miembro) VALUES('2022/12/31', 2110);
+INSERT INTO transacciones (fecha, id_miembro) VALUES('2022/12/31', 2112);
+INSERT INTO transacciones (fecha, id_miembro) VALUES('2022/12/31', 2112);
+INSERT INTO transacciones (fecha, id_miembro) VALUES('2022/06/03', 2111);
+INSERT INTO transacciones (fecha, id_miembro) VALUES('2022/06/06', 2111);
+
 
 INSERT INTO productos (nombre, p_venta_u, p_compra_u, lote, descripcion, stack, fecha_vencimiento)
 VALUES 	('Arroz Diana', 1500, 800, '27145', 'Arroz Diana 1 libra', 50, '2023/01/15'),
@@ -35,4 +37,7 @@ INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4
 INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4110, 3112, 3);      
 INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4111, 3112, 4);
 INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4111, 3111, 4);
-INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4112, 3110, 4);  
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4112, 3110, 4); 
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4113, 3110, 10);
+INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4114, 3111, 10);
+
