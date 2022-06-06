@@ -29,7 +29,7 @@ const createTransactionProduct = async (req, res, next) => {
     const { num_unico, codigo, cantidad_comprada } = req.body;
     try {
         const result = await pool.query
-            ('INSERT INTO transactionproducto (num_unico, codigo, cantidad_comprada) VALUES ($1, $2, $3) RETURNING *',
+            ('INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES ($1, $2, $3) RETURNING *',
                 [num_unico, codigo, cantidad_comprada]);                                 
         res.json(result.rows[0]);
     } catch (error){
