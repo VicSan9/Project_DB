@@ -14,7 +14,7 @@ const getProductSupplier = async (req, res, next) => {
     try {
         const { id } = req.params;
         const result = await pool.query
-            ('SELECT * FROM productoProveedor WHERE codigo = $1', [id]);
+            ('SELECT * FROM productoProveedor WHERE id_pr = $1', [id]);
         if (result.rows.length === 0)
             return res.status(404).json({
                 message: "El proveedor del producto no ha sido encontrado",
@@ -41,7 +41,7 @@ const deleteProductSupplier = async (req, res, next) => {
     try {
         const { id } = req.params;
         const result = await pool.query
-            ('DELETE FROM productoProveedor WHERE codigo = $1 RETURNING *', [id]);
+            ('DELETE FROM productoProveedor WHERE id_pr = $1 RETURNING *', [id]);
         if (result.rows.length === 0)
             return res.status(404).json({
                 message: "El proveedor del producto no ha sido encontrado",
@@ -57,7 +57,7 @@ const updateProductSupplier = async (req, res, next) => {
     const { id_proveedor, codigo } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE productoProveedor SET id_proveedor = $1, codigo = $2 WHERE codigo = $3 RETURNING *',
+            'UPDATE productoProveedor SET id_proveedor = $1, codigo = $2 WHERE id_pr = $3 RETURNING *',
             [id_proveedor, codigo , id]);
         if (result.rows.length === 0)
             return res.status(404).json({
