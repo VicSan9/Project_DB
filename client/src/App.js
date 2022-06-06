@@ -8,9 +8,11 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/'
-               element={<RouteController component = {Home} />}  />
+               exact= 'true'
+               element= {<RouteController component = {Home} />} />
         <Route path='/login'
-               element={<RouteController component = {Login} />} />
+               exact= 'true'
+               element= {<RouteController component = {Login} />} />
       </Routes>
     </BrowserRouter>
   )
