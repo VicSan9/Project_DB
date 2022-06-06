@@ -19,8 +19,8 @@ INSERT INTO transacciones (fecha, id_miembro) VALUES('2022/06/06', 2111);
 
 INSERT INTO productos (nombre, p_venta_u, p_compra_u, lote, descripcion, stack, fecha_vencimiento)
 VALUES 	('Arroz Diana', 1500, 800, '27145', 'Arroz Diana 1 libra', 50, '2023/01/15'),
- 		('Doritos', 1500, 1000, '21544', 'Fritura de maiz', 20, '2023/01/15'),
- 		('Trululu', 1000, 500, '25236', 'Gomitas de osos', 10, '2023/01/15');
+ 		('Doritos', 1500, 1000, '21544', 'Fritura de maiz', 20, '2022/07/15'),
+ 		('Trululu', 1000, 500, '25236', 'Gomitas de osos', 10, '2024/06/15');
         
 INSERT INTO proveedores
 VALUES 	(12214, 'Proovedor 1', 'Proovedor de gomitas', 3176215539, 'Cr.5- No.25-60'),
