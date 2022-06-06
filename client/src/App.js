@@ -1,19 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Navbar from "./components/Navbar"
-import { Container } from "@mui/material";
+import RouteController from "./components/RouteController";
 
 export default function App() {
   return (
     <BrowserRouter>
-    <Navbar></Navbar>
-      <Container>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/'
+               element={<RouteController component = {Home} />}  />
+        <Route path='/login'
+               element={<RouteController component = {Login} />} />
       </Routes>
-      </Container>
     </BrowserRouter>
   )
 }

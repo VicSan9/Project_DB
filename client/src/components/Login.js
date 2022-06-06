@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Card, CardContent, Grid, TextField, Typography } from "@mui/material";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar"
+
 
 export default function Login() {
 
@@ -20,6 +22,7 @@ export default function Login() {
       })  
 
     const data = await res.json()
+    localStorage.setItem('auth', 'yes')
     console.log(data)
     
     if (res.status === 200){
@@ -36,7 +39,9 @@ export default function Login() {
   }
 
     return (
-      <Grid
+      <Grid>
+        <Navbar></Navbar>
+        <Grid
         container
         direction="column"
         alignItems="center"
@@ -55,7 +60,8 @@ export default function Login() {
             }}
             style={{
               padding: '4rem',
-              boxShadow: '0px 0px 15px 0px'
+              boxShadow: '0px 0px 15px 0px',
+              with: '500px'
             }}
           >
             <Typography
@@ -125,6 +131,7 @@ export default function Login() {
             </CardContent>
           </Card>
         </Grid>
+      </Grid >
       </Grid >
     )
 }
