@@ -108,7 +108,7 @@ export default function Login() {
                   size="small"
                   label="Password"
                   type="password"
-                  margin="nomal"
+                  margin="normal"
                   fullWidth
                   sx={{
                     display: 'block',
@@ -122,7 +122,6 @@ export default function Login() {
                 <Button
                   variant="contained"
                   type="submit"
-                  justifyContent="center"
                   fullWidth
                 >
                   Sign in
