@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, IconButton, Avatar, Stack } from "@mui/material";
+import { AppBar, Box, Toolbar, Grid, Avatar, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -17,30 +17,32 @@ export default function Navbar() {
                         opacity: [0.8]
                     }
                 }}>
-                <Toolbar variant="dense"
+                <Toolbar
+                    variant="dense"
                     sx={{
                         height: '70px'
                     }}>
-                    <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                        <MenuIcon />
-                    </IconButton>
-                        <Link 
-                            to='/'
+                    <Grid
+                        container
+                        direction="row"
+                        justifyContent="center">
+                        <Link
+                            to='/login'
                             style={{
                                 textDecoration: "none",
                                 color: "#000",
                                 fontSize: "30px",
                                 fontWeight: "bold"
-                        }}> Backpack
+                            }}>     Backpack
                         </Link>
-                    <Stack direction="row" spacing={1} sx={{ margin: '0px 10px' }}>
-                        <Avatar
-                            alt="Remy Sharp"
-                            src="src/backpack.jpg"
-                            sx={{ width: 56, height: 56 }}>
-                            <BackpackIcon fontSize="large"/>
-                        </Avatar>
-                    </Stack>
+                        <Stack direction="row" spacing={1} sx={{ margin: '0px 10px' }}>
+                            <Avatar
+                                alt="Remy Sharp"
+                                sx={{ width: 50, height: 50 }}>
+                                <BackpackIcon fontSize="large" />
+                            </Avatar>
+                        </Stack>
+                    </Grid>
                 </Toolbar>
             </AppBar>
         </Box>
