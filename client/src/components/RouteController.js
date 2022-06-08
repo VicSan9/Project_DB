@@ -10,7 +10,7 @@ const RouteController = props => {
         if (!localStorage.getItem("auth")) {
             setIsAuth(false)
         } else {
-            const auth = JSON.parse(localStorage.getItem('auth'))
+            const auth = localStorage.getItem('auth')
             if (auth === 'yes') {
                 setIsAuth(true)
             } else {

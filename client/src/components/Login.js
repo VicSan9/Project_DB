@@ -22,10 +22,10 @@ export default function Login() {
     })  
 
     const data = await res.json()
-    localStorage.setItem('auth', 'yes')
     console.log(data)
     
     if (res.status === 200){
+      localStorage.setItem('auth', 'yes')
       navigate("/")
     } else{
       alert('Contraseña o usuario incorrecto');
