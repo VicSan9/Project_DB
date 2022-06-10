@@ -1,11 +1,14 @@
-import { AppBar, Box, Toolbar, IconButton, Avatar, Stack, Paper, Fade } from "@mui/material";
+import { AppBar, Box, Toolbar, IconButton, Avatar, Stack, Paper, Fade, Typography, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import BackpackIcon from '@mui/icons-material/Backpack';
 
 const icon = (
-    <Paper sx={{
+    <Paper 
+    sx={{
+        width: 326, 
+        height: 575,
         mt: 82,
         ml: -41,
         backgroundColor: 'transparent',
@@ -14,18 +17,19 @@ const icon = (
             backgroundColor: '#fff ',
             opacity: [1]
         }
-    }} elevation={10}>
-        <Box component="svg" sx={{
-            width: 326, 
-            height: 575
-        }} >
-            <Box 
-                style={{
-                    position: "absolute"
-                }}
-                points="0,100 50,00, 100,100"
-            />
-        </Box>
+    }} 
+    elevation={10}>
+        <Grid container>
+            <Box alignContent="center" alignItems="center">
+                <Typography 
+                    component="h2"
+                    mt="20px"
+                    ml="20px"
+                    color="#000"
+                > asdasfasfa
+                </Typography>
+            </Box>
+        </Grid>
     </Paper>
 );
 

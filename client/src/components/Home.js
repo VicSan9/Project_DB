@@ -47,9 +47,17 @@ export default function Home() {
           direction="column"
           alignItems="center"
           justifyContent="center">
+          <Typography
+            mt="20px"
+            component="h2"
+            color="#000"
+            fontSize="38px"
+            fontWeight="bold">
+          Tienda el Palmar
+          </Typography>
           <Card
             sx={{
-              mt: 10,
+              mt: 5,
               backgroundColor: 'transparent',
               boxShadow: 'none'
             }}>

@@ -29,7 +29,7 @@ export default function Login() {
       navigate("/")
     } else{
       alert('Contraseña o usuario incorrecto');
-    }
+    } 
   }
 
   const handleChange = e => {
@@ -52,7 +52,7 @@ export default function Login() {
       <Grid item xs={8}>
         <Card
           sx={{
-            mt: 8,
+            mt: 5,
             backgroundColor: '#fff',
             opacity: [0.8],
             '&:hover': {
