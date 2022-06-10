@@ -3,7 +3,7 @@ const pool = require ('../db');
 const getAllProducts = async (req, res, next) => {
     try {
         const allProducts = await pool.query
-            ('SELECT * FROM productos');
+            ('SELECT * FROM inventory');
         res.json(allProducts.rows);
     } catch (error) {
         next(error);
