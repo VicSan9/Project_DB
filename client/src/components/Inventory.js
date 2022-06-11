@@ -50,7 +50,7 @@ export default function Inventory() {
                     Inventario
                 </h2>
                 <Card sx={{backgroundColor:"transparent", boxShadow: "none"}}>
-                    <CardContent sx={{width:800}} >
+                    <CardContent sx={{width:750}} >
                         <TableContainer component={Paper}>
                             <Table sx={{ minWidth: 700 }} aria-label="customized table">
                                 <TableHead>
