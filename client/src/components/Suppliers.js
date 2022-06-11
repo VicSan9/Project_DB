@@ -59,11 +59,11 @@ export default function Suppliers() {
                         <Table sx={{ minWidth: 700 }} aria-label="customized table">
                           <TableHead>
                             <TableRow>
-                              <StyledTableCell style={{backgroundColor:"#484848"}}> id_proveedor</StyledTableCell>
-                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">nombre</StyledTableCell>
-                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">descripcion</StyledTableCell>
-                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">telefono</StyledTableCell>
-                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">direccion</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} > ID Proveedor</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Nombre</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Descripción</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Telefono</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Dirección</StyledTableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
