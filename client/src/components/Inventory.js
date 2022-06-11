@@ -1,12 +1,7 @@
 import Navbar from './Navbar';
-import { Card, CardContent, Grid, Paper } from "@mui/material";
+import { Card, CardContent, Grid, Paper, Table, TableBody, TableCell, TableContainer,
+         TableHead, TableRow, tableCellClasses } from "@mui/material";
 import { useEffect, useState } from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
 
 export default function Inventory() {
