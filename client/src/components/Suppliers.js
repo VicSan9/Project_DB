@@ -1,15 +1,8 @@
 import Navbar from './Navbar';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { Grid } from "@mui/material";
-import { Container } from '@mui/system';
+import { Card, CardContent, Grid, Paper, Table, TableBody, TableCell, TableContainer,
+    TableHead, TableRow, tableCellClasses} from "@mui/material";
 import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -46,10 +39,11 @@ export default function Suppliers() {
     }, [])
 
     return (
-        <Grid>
+        <>
             <Navbar></Navbar>
-         <Container>
+        
          <Grid
+                container 
                 direction="column"
                 alignItems="center"
                 justifyContent="left">
@@ -58,9 +52,9 @@ export default function Suppliers() {
                     Proveedores
                 </h2>
 
-        
-                {
-                    
+                       
+                    <Card sx={{backgroundColor:"transparent", boxShadow: "none"}}>
+                    <CardContent sx={{width:800}} >
                         <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 700 }} aria-label="customized table">
                           <TableHead>
@@ -87,13 +81,11 @@ export default function Suppliers() {
                           </TableBody>
                         </Table>
                       </TableContainer>
-
-                     
-
-                }
+                      </CardContent>
+                      </Card>
 
          </Grid>       
-         </Container>
-        </Grid> 
+         
+        </>
     )
     }
