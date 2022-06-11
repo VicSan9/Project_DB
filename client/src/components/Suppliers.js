@@ -1,5 +1,4 @@
 import Navbar from './Navbar';
-import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -9,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import { Grid } from "@mui/material";
 import { Container } from '@mui/system';
 import { useEffect, useState } from 'react';
+import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -65,11 +65,11 @@ export default function Suppliers() {
                         <Table sx={{ minWidth: 700 }} aria-label="customized table">
                           <TableHead>
                             <TableRow>
-                              <StyledTableCell>id_proveedor</StyledTableCell>
-                              <StyledTableCell align="right">nombre</StyledTableCell>
-                              <StyledTableCell align="right">descripcion</StyledTableCell>
-                              <StyledTableCell align="right">telefono</StyledTableCell>
-                              <StyledTableCell align="right">direccion</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}}> id_proveedor</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">nombre</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">descripcion</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">telefono</StyledTableCell>
+                              <StyledTableCell style={{backgroundColor:"#484848"}} align="right">direccion</StyledTableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
