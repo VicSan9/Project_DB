@@ -1,8 +1,35 @@
 import Navbar from './Navbar';
-import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { Card, CardContent, Grid, Paper } from "@mui/material";
 import { useEffect, useState } from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import { styled } from '@mui/material/styles';
 
 export default function Inventory() {
+
+    const StyledTableCell = styled(TableCell)(({ theme }) => ({
+        [`&.${tableCellClasses.head}`]: {
+            backgroundColor: theme.palette.common.black,
+            color: theme.palette.common.white,
+        },
+        [`&.${tableCellClasses.body}`]: {
+            fontSize: 14,
+        },
+    }));
+
+    const StyledTableRow = styled(TableRow)(({ theme }) => ({
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.action.hover,
+        },
+        // hide last border
+        '&:last-child td, &:last-child th': {
+            border: 0,
+        },
+    }));
 
     const [products, setProducts] = useState([])
 
@@ -27,18 +54,33 @@ export default function Inventory() {
                 <h2>
                     Inventario
                 </h2>
-                {
-                    products.map((product) => (
-                        <Card>
-                            <CardContent>
-                                <Typography>{product.nombre}</Typography>
-                                <Typography>{product.descripcion}</Typography>
-                                <Typography>{product.lote}</Typography>
-                                <Typography>{product.stack}</Typography>
-                            </CardContent>
-                        </Card>
-                    ))
-                }
+                <Card sx={{backgroundColor:"transparent", boxShadow: "none"}}>
+                    <CardContent sx={{width:800}} >
+                        <TableContainer component={Paper}>
+                            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                                <TableHead>
+                                    <TableRow>
+                                        <StyledTableCell style={{backgroundColor:"#484848"}}>Nombre</StyledTableCell>
+                                        <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Descripcion</StyledTableCell>
+                                        <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Lote</StyledTableCell>
+                                        <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Stack (cantidad)</StyledTableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {
+                                    products.map((product) => (
+                                        <StyledTableRow key={product.nombre}>
+                                            <StyledTableCell align="right">{product.nombre}</StyledTableCell>
+                                            <StyledTableCell align="right">{product.descripcion}</StyledTableCell>
+                                            <StyledTableCell align="right">{product.lote}</StyledTableCell>
+                                            <StyledTableCell align="right">{product.stack}</StyledTableCell>
+                                        </StyledTableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </CardContent>
+                </Card>
             </Grid>
         </>
     )

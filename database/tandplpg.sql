@@ -51,6 +51,7 @@ BEGIN
 RETURN NEW;
 END
 $function_reduce_stack$ LANGUAGE plpgsql;
+
 --Trigger para crear informes
 CREATE TRIGGER trigger_function_insert_info
 AFTER INSERT ON transaccionproducto
