@@ -70,7 +70,8 @@ export default function Inventory() {
                                             <StyledTableCell align="right">{product.lote}</StyledTableCell>
                                             <StyledTableCell align="right">{product.stack}</StyledTableCell>
                                         </StyledTableRow>
-                                    ))}
+                                    ))
+                                    }
                                 </TableBody>
                             </Table>
                         </TableContainer>

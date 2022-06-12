@@ -64,7 +64,7 @@ export default function Informs() {
                                     {
                                     informs.map((inform) => (
                                         <StyledTableRow key={inform.nombre_producto}>
-                                            <StyledTableCell align="Lef">{inform.nombre_producto}</StyledTableCell>
+                                            <StyledTableCell align="Left">{inform.nombre_producto}</StyledTableCell>
                                             <StyledTableCell align="right">{inform.total_de_costos}</StyledTableCell>
                                             <StyledTableCell align="right">{inform.total_de_ventas}</StyledTableCell>
                                             <StyledTableCell align="right">{inform.total_de_utilidad}</StyledTableCell>
