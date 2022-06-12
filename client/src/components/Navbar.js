@@ -22,8 +22,8 @@ export default function Navbar() {
         <Paper 
         sx={{
             width: 326, 
-            height: 575,
-            mt: 82,
+            height: 550,
+            mt: 78,
             ml: -41,
             backgroundColor: 'transparent',
             opacity: [1],
@@ -58,11 +58,14 @@ export default function Navbar() {
                         >Administrador
                     </Typography>
                 </Grid>
-                <Box container mt="380px" >
+                <Box container mt="365px" >
                     <Button
                         onClick={handleClic2}
                         variant="text"
                         fullWidth
+                        sx={{
+                            color:'red'
+                        }}
                     >
                         Sign Out
                     </Button>

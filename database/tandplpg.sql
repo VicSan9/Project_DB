@@ -77,13 +77,13 @@ GROUP BY nombre;
 
 --vista productos proximos a vencerse
 CREATE VIEW product_to_expire AS
-SELECT p.nombre, p.lote, p.fecha_vencimiento
+SELECT p.nombre, p.lote, P.fecha_vencimiento
 FROM productos AS p
-WHERE p.fecha_vencimiento <= current_date + 365
-ORDER BY p.fecha_vencimiento ASC;
+WHERE P.fecha_vencimiento <= current_date + 365
+ORDER BY P.fecha_vencimiento ASC;
 
 --vista inventario 
-CREATE VIEW inventory as
-SELECT p.nombre, p.descripcion, p.lote, p.stack
-FROM productos AS p;
+CREATE VIEW inventory AS
+SELECT P.nombre, P.descripcion, P.lote, P.stack
+FROM productos AS P;
 

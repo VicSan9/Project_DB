@@ -58,7 +58,7 @@ export default function Inventory() {
                                         <StyledTableCell style={{backgroundColor:"#484848"}}>Nombre</StyledTableCell>
                                         <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Descripción</StyledTableCell>
                                         <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Lote</StyledTableCell>
-                                        <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Stack (cantidad)</StyledTableCell>
+                                        <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Stock (cantidad)</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>

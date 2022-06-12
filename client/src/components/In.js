@@ -1,7 +1,48 @@
 import Navbar from './Navbar';
 import { Button, Card, CardContent, Grid, TextField } from "@mui/material";
+import { useState } from "react";
 
 export default function In() {
+
+    const [newProduct, setNewProduct] = useState({  nombre: '', 
+                                                    p_compra_u: '',
+                                                    p_venta_u: '',
+                                                    lote: '',
+                                                    descripcion: '',
+                                                    stack: '',
+                                                    fecha_vencimiento: ''});
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(newProduct);
+
+        const res = await fetch('http://localhost:4000/products', {
+            method: 'POST',
+            body: JSON.stringify(newProduct),
+            headers: { "content-Type": "application/json" }
+        })  
+
+        const data = await res.json()
+        console.log(data)
+
+        setNewProduct({ 
+            nombre: '', 
+            p_compra_u: '',
+            p_venta_u: '',
+            lote: '',
+            descripcion: '',
+            stack: '',
+            fecha_vencimiento: ''});
+    }  
+
+    const handleChange = e => {
+        console.log(e.target.name, e.target.value);
+        setNewProduct({
+        ...newProduct,
+        [e.target.name]: e.target.value
+        })
+    }
+
     return (
         <Grid>
             <Navbar></Navbar>
@@ -29,7 +70,7 @@ export default function In() {
                     boxShadow: '0px 0px 15px 0px',
                 }}>
                     <CardContent>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <Grid container direction="row" alignItems="center" justifyContent="left">
                                 <TextField
                                     helperText="Escriba el nombre del producto"
@@ -41,7 +82,9 @@ export default function In() {
                                         display: 'block',
                                         margin: '.8rem 0'
                                     }}
-                                    name="">
+                                    name="nombre"
+                                    value={newProduct.nombre}
+                                    onChange={handleChange}>
                                 </TextField>
                                 <TextField
                                     helperText="Escriba la descripción del producto"
@@ -56,7 +99,9 @@ export default function In() {
                                         ml: '15px',
                                         width: '380px'
                                     }}
-                                    name="">
+                                    name="descripcion"
+                                    value={newProduct.descripcion}
+                                    onChange={handleChange}>
                                 </TextField>
                             </Grid>
                             <Grid container direction="row" alignItems="center" justifyContent="left">
@@ -72,7 +117,9 @@ export default function In() {
                                         margin: '.8rem 0',
                                         width: '191px'
                                     }}
-                                    name="">
+                                    name="p_compra_u"
+                                    value={newProduct.p_compra_u}
+                                    onChange={handleChange}>
                                 </TextField>
                                 <TextField
                                     helperText="Precio por unidad"
@@ -87,7 +134,9 @@ export default function In() {
                                         ml: '15px',
                                         width: '191px'
                                     }}
-                                    name="">
+                                    name="p_venta_u"
+                                    value={newProduct.p_venta_u}
+                                    onChange={handleChange}>
                                 </TextField>
                                 <TextField
                                     helperText="Número de lote"
@@ -102,7 +151,9 @@ export default function In() {
                                         ml: '15px',
                                         width: '193px'
                                     }}
-                                    name="">
+                                    name="lote"
+                                    value={newProduct.lote}
+                                    onChange={handleChange}>
                                 </TextField>
                             </Grid>
                             <Grid container direction="row" alignItems="center" justifyContent="left">
@@ -118,7 +169,9 @@ export default function In() {
                                         margin: '.8rem 0',
                                         width: '191px'
                                     }}
-                                    name="">
+                                    name="fecha_vencimiento"
+                                    value={newProduct.fecha_vencimiento}
+                                    onChange={handleChange}>
                                 </TextField>
                                 <TextField
                                     helperText="Cantidad que ingresa"
@@ -133,7 +186,9 @@ export default function In() {
                                         ml: '15px',
                                         width: '191px'
                                     }}
-                                    name="">
+                                    name="stack"
+                                    value={newProduct.stack}
+                                    onChange={handleChange}>
                                 </TextField>
                                 <Button
                                     variant="contained"
