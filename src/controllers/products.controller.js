@@ -10,6 +10,16 @@ const getAllProducts = async (req, res, next) => {
     }
 }
 
+const getAllProducts2 = async (req, res, next) => {
+    try {
+        const allProducts = await pool.query
+            ('SELECT * FROM productos');
+        res.json(allProducts.rows);
+    } catch (error) {
+        next(error);
+    }
+}
+
 const getProduct = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -71,6 +81,7 @@ const updateProduct = async (req, res, next) => {
 
 module.exports = {
     getAllProducts,
+    getAllProducts2,
     getProduct,
     createProduct,
     deleteProduct,

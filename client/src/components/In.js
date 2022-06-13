@@ -33,6 +33,8 @@ export default function In() {
             descripcion: '',
             stack: '',
             fecha_vencimiento: ''});
+        
+        alert("Producto agregado")
     }  
 
     const handleChange = e => {

@@ -4,12 +4,15 @@ const {
     getProduct, 
     createProduct, 
     deleteProduct, 
-    updateProduct
+    updateProduct,
+    getAllProducts2
 } = require('../controllers/products.controller');
 
 const router = Router();
 
 router.get('/products', getAllProducts);
+
+router.get('/products2', getAllProducts2);
 
 router.get('/products/:id', getProduct);
 
