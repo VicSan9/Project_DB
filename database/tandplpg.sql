@@ -44,10 +44,22 @@ DECLARE
 							   
 	reducirProducto INTEGER = totalProductos - productoComprado;
 	
+	
 BEGIN
 	UPDATE productos AS P
 	SET stack = reducirProducto
 	WHERE p.codigo = codigoProducto;
+	
+	IF totalProductos < productoComprado THEN 
+	RAISE EXCEPTION 'The stack of products is 0';
+	
+	ELSE
+	IF reducirProducto = 0 THEN 
+	DELETE FROM productos AS p WHERE P.stack = 0;
+	
+    END IF;
+	END IF;
+
 RETURN NEW;
 END
 $function_reduce_stack$ LANGUAGE plpgsql;

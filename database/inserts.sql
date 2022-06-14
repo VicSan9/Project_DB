@@ -40,4 +40,8 @@ INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4
 INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4112, 3110, 4); 
 INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4113, 3110, 10);
 INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4114, 3111, 10);
+---INSERT INTO transaccionproducto (num_unico, codigo, cantidad_comprada) VALUES (4114, 3112, 3);
+
+
+
 
