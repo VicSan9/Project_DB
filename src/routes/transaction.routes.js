@@ -4,12 +4,15 @@ const {
     getTransaction, 
     createTransaction, 
     deleteTransaction, 
-    updateTransaction
+    updateTransaction,
+    getSales
 } = require('../controllers/transaction.controller');
 
 const router = Router();
 
 router.get('/transaction', getAllTransaction);
+
+router.get('/transactionSales', getSales);
 
 router.get('/transaction/:id', getTransaction);
 

@@ -10,6 +10,16 @@ const getAllTransaction = async (req, res, next) => {
     }
 }
 
+const getSales = async (req, res, next) => {
+    try {
+        const sales = await pool.query
+            ('SELECT * FROM num_sales');
+        res.json(sales.rows);
+    } catch (error) {
+        next(error);
+    }
+}
+
 const getTransaction = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -74,5 +84,6 @@ module.exports = {
     getTransaction,
     createTransaction,
     deleteTransaction,
-    updateTransaction
+    updateTransaction,
+    getSales
 }

@@ -64,7 +64,7 @@ export default function Inventory() {
                                 <TableBody>
                                     {
                                     products.map((product) => (
-                                        <StyledTableRow key={product.nombre}>
+                                        <StyledTableRow key={product.lote}>
                                             <StyledTableCell align="left">{product.nombre}</StyledTableCell>
                                             <StyledTableCell align="right">{product.descripcion}</StyledTableCell>
                                             <StyledTableCell align="right">{product.lote}</StyledTableCell>

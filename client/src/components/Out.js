@@ -45,10 +45,13 @@ export default function Out() {
     }, [])
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
 
-        console.log(tran);
-        console.log(tranProd);
+        if (tranProd.codigo === ""){
+            alert("Escoja un producto primero")
+            return
+        }
 
         const res = await fetch('http://localhost:4000/transaction', {
             method: 'POST',
@@ -62,15 +65,6 @@ export default function Out() {
 
         setTranProd(tranProd.num_unico = num_unico)
 
-        const res2 = await fetch('http://localhost:4000/transactionproduct', {
-            method: 'POST',
-            body: JSON.stringify(tranProd),
-            headers: { "content-Type": "application/json" }
-        })
-        
-        const data2 = await res2.json()
-        console.log(data2)
-
         setTran({
             fecha: '',
             id_miembro: ''
@@ -82,7 +76,24 @@ export default function Out() {
             cantidad_comprada: ''
         })
 
-        alert('Transaccion registrada')
+        const res2 = await fetch('http://localhost:4000/transactionproduct', {
+            method: 'POST',
+            body: JSON.stringify(tranProd),
+            headers: { "content-Type": "application/json" }
+        })
+        
+        const data2 = await res2.json()
+        console.log(data2)
+
+        if(data.message.name === 'error'){
+            alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+        } else{
+            if(data2.message.name === 'error'){
+                alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+            } else{
+                alert('Transacción registrada de manera correacta')
+            }
+        }
     }
 
     return (

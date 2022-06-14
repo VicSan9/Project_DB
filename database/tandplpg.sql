@@ -75,15 +75,28 @@ JOIN productos AS P
 ON I.codigo_producto = P.codigo
 GROUP BY nombre;
 
---vista productos proximos a vencerse
+--Vista productos proximos a vencerse
 CREATE VIEW product_to_expire AS
-SELECT p.nombre, p.lote, P.fecha_vencimiento
-FROM productos AS p
+SELECT p.nombre, p.lote, P.fecha_vencimiento, P.stack
+FROM productos AS P
 WHERE P.fecha_vencimiento <= current_date + 365
 ORDER BY P.fecha_vencimiento ASC;
 
---vista inventario 
+--Vista inventario 
 CREATE VIEW inventory AS
 SELECT P.nombre, P.descripcion, P.lote, P.stack
 FROM productos AS P;
+
+--Vista para ver la cantidad de productos que vendio un miembro
+CREATE VIEW num_sales AS
+SELECT M.nombre, SUM (TP.cantidad_comprada) AS num_ventas
+FROM transacciones AS T
+JOIN transaccionProducto AS TP
+ON T.num_unico = TP.num_unico 
+JOIN miembros AS M
+ON M.id_miembro = T.id_miembro
+GROUP BY M.nombre
+ORDER BY SUM (TP.cantidad_comprada) DESC;
+
+
 

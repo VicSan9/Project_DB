@@ -89,7 +89,7 @@ export default function Navbar() {
                 <Toolbar
                     variant="dense"
                     sx={{
-                        height: '70px'
+                        height: '65px'
                     }}>
                     <IconButton sx={{ mr: 8 }} edge="start" aria-label="menu" onClick={handleClic}>
                         <MenuIcon />

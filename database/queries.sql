@@ -11,3 +11,4 @@ SELECT * FROM transaccionproducto;
 SELECT * FROM end_view_info; 
 SELECT * FROM inventory;
 SELECT * FROM product_to_expire;
+SELECT * FROM num_sales;

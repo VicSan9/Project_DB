@@ -13,7 +13,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(login);
 
     const res = await fetch('http://localhost:4000/administrators/login', {
       method: 'POST',
@@ -33,7 +32,6 @@ export default function Login() {
   }
 
   const handleChange = e => {
-    console.log(e.target.name, e.target.value);
     setLogin({
       ...login,
       [e.target.name]: e.target.value

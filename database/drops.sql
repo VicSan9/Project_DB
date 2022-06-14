@@ -1,5 +1,5 @@
 --Eliminar vista 
-DROP VIEW end_view_info, product_to_expire, inventory;
+DROP VIEW end_view_info, product_to_expire, inventory, num_sales;
 
 --Eliminar triggers
 DROP TRIGGER trigger_function_insert_info on transaccionproducto;

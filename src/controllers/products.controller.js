@@ -10,6 +10,16 @@ const getAllProducts = async (req, res, next) => {
     }
 }
 
+const getDates = async (req, res, next) => {
+    try {
+        const dates = await pool.query
+            ('SELECT * FROM product_to_expire');
+        res.json(dates.rows);
+    } catch (error) {
+        next(error);
+    }
+}
+
 const getAllProducts2 = async (req, res, next) => {
     try {
         const allProducts = await pool.query
@@ -85,5 +95,6 @@ module.exports = {
     getProduct,
     createProduct,
     deleteProduct,
-    updateProduct
+    updateProduct,
+    getDates
 }

@@ -14,8 +14,7 @@ export default function In() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(newProduct);
-
+        
         const res = await fetch('http://localhost:4000/products', {
             method: 'POST',
             body: JSON.stringify(newProduct),
@@ -23,7 +22,6 @@ export default function In() {
         })  
 
         const data = await res.json()
-        console.log(data)
 
         setNewProduct({ 
             nombre: '', 
@@ -34,7 +32,11 @@ export default function In() {
             stack: '',
             fecha_vencimiento: ''});
         
-        alert("Producto agregado")
+        if(data.message.name === 'error'){
+            alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+        } else{
+            alert('Se ha agregado el producto de manera correcta')
+        }
     }  
 
     const handleChange = e => {
@@ -179,7 +181,7 @@ export default function In() {
                                     helperText="Cantidad que ingresa"
                                     variant="outlined"
                                     size="small"
-                                    label="Stack"
+                                    label="Stock"
                                     margin="normal"
                                     fullWidth
                                     sx={{

@@ -19,7 +19,7 @@ export default function Navbar() {
                 <Toolbar
                     variant="dense"
                     sx={{
-                        height: '70px'
+                        height: '65px'
                     }}>
                     <Grid
                         container
