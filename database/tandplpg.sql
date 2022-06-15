@@ -90,7 +90,7 @@ GROUP BY nombre;
 CREATE VIEW product_to_expire AS
 SELECT p.nombre, p.lote, P.fecha_vencimiento, P.stack
 FROM productos AS P
-WHERE P.fecha_vencimiento <= current_date + 365
+WHERE P.fecha_vencimiento <= current_date + 365 AND P.stack > 0
 ORDER BY P.fecha_vencimiento ASC;
 
 --Vista inventario 

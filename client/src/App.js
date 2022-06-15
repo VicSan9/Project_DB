@@ -13,10 +13,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+       <Route path='/login'
+               element= {<RouteController component = {Login} />} />
         <Route path='/'
                element= {<RouteController component = {Home} />} />
-        <Route path='/login'
-               element= {<RouteController component = {Login} />} />
         <Route path='/in'
                element= {<RouteController component = {In} />} />
         <Route path='/informs'
