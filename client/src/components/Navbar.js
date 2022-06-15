@@ -88,8 +88,8 @@ export default function Navbar() {
     const icon = (
         <Paper 
         sx={{
-                width: 326,
-                mt: 83,
+            width: 326,
+            mt: 82,
             ml: -41,
             backgroundColor: 'transparent',
             opacity: [1],
@@ -195,7 +195,7 @@ export default function Navbar() {
                 <Toolbar
                     variant="dense"
                     sx={{
-                        height: '65px'
+                        height: '9vh'
                     }}>
                     <IconButton sx={{ mr: 8 }} edge="start" aria-label="menu" onClick={handleClic}>
                         <MenuIcon />
