@@ -96,7 +96,8 @@ ORDER BY P.fecha_vencimiento ASC;
 --Vista inventario 
 CREATE VIEW inventory AS
 SELECT P.nombre, P.descripcion, P.lote, P.stack
-FROM productos AS P;
+FROM productos AS P
+WHERE P.stack > 0;
 
 --Vista para ver la cantidad de productos que vendio un miembro
 CREATE VIEW num_sales AS

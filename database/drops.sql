@@ -4,7 +4,6 @@ DROP VIEW end_view_info, product_to_expire, inventory, num_sales;
 --Eliminar triggers
 DROP TRIGGER trigger_function_insert_info on transaccionproducto;
 DROP TRIGGER trigger_function_reduce_stack on transaccionproducto;
---DROP TRIGGER function_eliminar_producto on transaccionproducto;
 
 --Eliminar funciones 
 DROP FUNCTION function_insert_info, function_reduce_stack;
