@@ -11,25 +11,33 @@ import RouteController from "./components/RouteController";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-       <Route path='/login'
-               element= {<RouteController component = {Login} />} />
-        <Route path='/'
-               element= {<RouteController component = {Home} />} />
-        <Route path='/in'
-               element= {<RouteController component = {In} />} />
-        <Route path='/informs'
-               element= {<RouteController component = {Informs} />} />
-        <Route path='/Inventory'
-               element= {<RouteController component = {Inventory} />} />
-        <Route path='/out'
-               element= {<RouteController component = {Out} />} />
-        <Route path='/search'
-               element= {<RouteController component = {Search} />} />
-        <Route path='/suppliers'
-               element= {<RouteController component = {Suppliers} />} />
-      </Routes>
-    </BrowserRouter>
+       <BrowserRouter>
+              <Routes>
+                     <Route exact
+                            path='/login'
+                            element= {<Login />} />
+                     <Route exact
+                            path='/'
+                            element= {<RouteController componet = {Home} />} />
+                     <Route exact
+                            path='/in'
+                            element= {<RouteController componet = {In} />} />
+                     <Route exact
+                            path='/informs'
+                            element= {<RouteController componet = {Informs} />} />
+                     <Route exact
+                            path='/Inventory'
+                            element= {<RouteController componet = {Inventory} />} />
+                     <Route exact
+                            path='/out'
+                            element= {<RouteController componet = {Out} />} />
+                     <Route exact
+                            path='/search'
+                            element= {<RouteController componet = {Search} />} />
+                     <Route exact
+                            path='/suppliers'
+                            element= {<RouteController componet = {Suppliers} />} />
+              </Routes>
+       </BrowserRouter>
   )
 }

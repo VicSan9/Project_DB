@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
 
-const RouteController = props => {
-    const { component: Component, isAuthenticated, ...rest } = props
+const RouteController = ({ componet: Componet, ...rest }) => {
 
     const [isAuth, setIsAuth] = useState(true)
 
     const init = () => {
-        if (!localStorage.getItem("auth")) {
+        const auth = localStorage.getItem('auth')
+
+        if (auth === null) {
+            console.log(auth)
             setIsAuth(false)
-        } else {
-            const auth = localStorage.getItem('auth')
-            if (auth === 'yes') {
-                setIsAuth(true)
-            } else {
-                setIsAuth(false)
-            }
+            return
+        }
+        
+        if (auth === 'yes') {
+            console.log(auth)
+            setIsAuth(true)
+            return
         }
     }
-    //useEffect(init, [])
 
-    return isAuth ? <Component {...rest} /> : <Navigate to='/login' />
+    useEffect(init, [])
+    
+    return isAuth ? <Componet {...rest} /> : <Navigate to='/login'/>
 }
 
 export default RouteController
