@@ -96,6 +96,6 @@ CREATE TABLE IF NOT EXISTs productoProveedor (
 	id_proveedor INTEGER NOT NULL,
   	codigo INTEGER NOT NULL,
   	PRIMARY KEY (id_proveedor, codigo),
-  	FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor),
+  	FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor) ON DELETE CASCADE,
   	FOREIGN KEY (codigo) REFERENCES productos(codigo)
 );

@@ -67,7 +67,6 @@ export default function Navbar() {
         const res = await fetch('http://localhost:4000/administrators')
         const data = await res.json()
         sedAdmin(data)
-        console.log(data[0].nombre)
     }
 
     React.useEffect(() => {

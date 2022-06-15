@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import {
   Card, CardContent, Grid, Paper, Table, TableBody, TableCell, TableContainer,
-  TableHead, TableRow, tableCellClasses
+  TableHead, TableRow, tableCellClasses, Button
 } from "@mui/material";
 import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
@@ -40,6 +40,15 @@ export default function Suppliers() {
     loadSuppliers()
     }, [])
 
+  const handleDelead = async(id_proveedor) => {
+    
+    await fetch(`http://localhost:4000/suppliers/${id_proveedor}`, {
+      method: 'DELETE',
+    }) 
+    
+    setSuppliers(suppliers.filter((supplier) => supplier.id_proveedor !== id_proveedor))
+  }
+
     return (
       <>
         <Navbar></Navbar>
@@ -62,6 +71,7 @@ export default function Suppliers() {
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Descripción</StyledTableCell>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Telefono</StyledTableCell>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Dirección</StyledTableCell>
+                      <StyledTableCell style={{ backgroundColor: "#484848" }} align="center">Eliminar</StyledTableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -74,6 +84,10 @@ export default function Suppliers() {
                         <StyledTableCell align="right">{supplier.descripcion}</StyledTableCell>
                         <StyledTableCell align="right">{supplier.telefono}</StyledTableCell>
                         <StyledTableCell align="right">{supplier.direccion}</StyledTableCell>
+                        <StyledTableCell aling="right">
+                          <Button onClick={() => handleDelead(supplier.id_proveedor)} sx={{color:'red'}}>Eliminar
+                          </Button>
+                        </StyledTableCell>
                       </StyledTableRow>
                     ))}
                   </TableBody>
