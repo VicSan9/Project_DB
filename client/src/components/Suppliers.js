@@ -5,6 +5,7 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -28,6 +29,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function Suppliers() {
 
+  const navigate = useNavigate()
+
   const [suppliers, setSuppliers] = useState([])
 
     const loadSuppliers = async () => {
@@ -48,6 +51,10 @@ export default function Suppliers() {
     
     setSuppliers(suppliers.filter((supplier) => supplier.id_proveedor !== id_proveedor))
   }
+  
+  const handleClic = () => {
+    navigate('/suppliers/new')
+  }
 
     return (
       <>
@@ -56,11 +63,12 @@ export default function Suppliers() {
           container 
           direction="column"
           alignItems="center"
+          alignContent="center"
           justifyContent="left">
           <h2>
             Proveedores
           </h2>
-          <Card sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
+          <Card sx={{ backgroundColor: "transparent", boxShadow: "none"}}>
             <CardContent sx={{ width: 800 }} >
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -95,6 +103,9 @@ export default function Suppliers() {
               </TableContainer>
             </CardContent>
           </Card>
+          <Button onClick={handleClic}>
+            Agregar nuevo proveedor
+          </Button>
         </Grid>
       </>
   )
