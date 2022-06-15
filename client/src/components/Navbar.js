@@ -1,11 +1,78 @@
-import { AppBar, Box, Toolbar, IconButton, Avatar, Stack, Paper, Fade, Typography, Grid, Button } from "@mui/material";
+import {
+    AppBar, Box, Toolbar, Avatar, Stack, Paper, Fade, Typography, Grid, Button, CardContent,
+    Card, DialogContent, DialogActions, Dialog, DialogTitle
+} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import BackpackIcon from '@mui/icons-material/Backpack';
+import PropTypes from 'prop-types';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Navbar() {
+    const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+        '& .MuiDialogContent-root': {
+            padding: theme.spacing(2),
+        },
+        '& .MuiDialogActions-root': {
+            padding: theme.spacing(1),
+        },
+    }));
+
+    const BootstrapDialogTitle = (props) => {
+        const { children, onClose, ...other } = props;
+
+        return (
+            <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+                {children}
+                {onClose ? (
+                    <IconButton
+                        aria-label="close"
+                        onClick={onClose}
+                        sx={{
+                            position: 'absolute',
+                            right: 8,
+                            top: 8,
+                            color: (theme) => theme.palette.grey[500],
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
+                ) : null}
+            </DialogTitle>
+        );
+    };
+
+    BootstrapDialogTitle.propTypes = {
+        children: PropTypes.node,
+        onClose: PropTypes.func.isRequired,
+    };
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const [checked, setChecked] = React.useState(false);
+
+    const [admin, sedAdmin] = React.useState([])
+
+    const loadAdmin = async () => {
+        const res = await fetch('http://localhost:4000/administrators')
+        const data = await res.json()
+        sedAdmin(data)
+        console.log(data[0].nombre)
+    }
+
+    React.useEffect(() => {
+        loadAdmin()
+    }, [])
 
     const handleClic = () => {
         setChecked((prev) => !prev);
@@ -21,9 +88,8 @@ export default function Navbar() {
     const icon = (
         <Paper 
         sx={{
-            width: 326, 
-            height: 550,
-            mt: 78,
+                width: 326,
+                mt: 83,
             ml: -41,
             backgroundColor: 'transparent',
             opacity: [1],
@@ -33,9 +99,9 @@ export default function Navbar() {
             }
         }} 
         elevation={10}>
-            <Grid container direction="column" alignContent="center" alignItems="center" justifyContent="center">
+            <Grid height={'90vh'} container direction="column" alignContent="center" alignItems="center" justifyContent="center">
                 <Grid>
-                    <Box container mt="20px" ml="27px">
+                    <Box container mt="0px" ml="27px">
                         <Avatar
                             alt="Remy Sharp"
                             sx={{width: 50, height: 50 }}>     
@@ -47,7 +113,11 @@ export default function Navbar() {
                         ml="3px"
                         component="h2"
                         color="#000"
-                        >Mercy Castro
+                    >{
+                            admin.map((ad) => (
+                                ad.nombre
+                            ))
+                        }
                     </Typography>
                     <Typography 
                         ml="10px"
@@ -58,7 +128,48 @@ export default function Navbar() {
                         >Administrador
                     </Typography>
                 </Grid>
-                <Box container mt="365px" >
+                <Card sx={{ mt: '20px', backgroundColor: 'transparent', boxShadow: 'none' }}>
+                    <CardContent>
+                        <Button
+                            onClick={handleClickOpen}
+                            variant="text"
+                            fullWidth
+                        >
+                            Editar admin
+                        </Button>
+                        <BootstrapDialog
+                            onClose={handleClose}
+                            aria-labelledby="customized-dialog-title"
+                            open={open}
+                        >
+                            <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+                                Editar administrador
+                            </BootstrapDialogTitle>
+                            <DialogContent dividers>
+                                <Typography gutterBottom>
+                                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                                    consectetur ac, vestibulum at eros.
+                                </Typography>
+                                <Typography gutterBottom>
+                                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                                    Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                                </Typography>
+                                <Typography gutterBottom>
+                                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
+                                    magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
+                                    ullamcorper nulla non metus auctor fringilla.
+                                </Typography>
+                            </DialogContent>
+                            <DialogActions>
+                                <Button autoFocus onClick={handleClose}>
+                                    Save changes
+                                </Button>
+                            </DialogActions>
+                        </BootstrapDialog>
+                    </CardContent>
+                </Card>
+                <Box container mt="270px" >
                     <Button
                         onClick={handleClic2}
                         variant="text"

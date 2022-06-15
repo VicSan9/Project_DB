@@ -3,7 +3,7 @@ const pool = require ('../db');
 const getAllAdministrators = async (req, res, next) => {
     try {
         const allAdministrators = await pool.query
-            ('SELECT * FROM administrador');
+            ('SELECT * FROM administrador AS A JOIN miembros AS M ON M.id_miembro = A.id_miembro');
         res.json(allAdministrators.rows);
     } catch (error) {
         next(error);
