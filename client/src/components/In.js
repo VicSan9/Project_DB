@@ -31,11 +31,15 @@ export default function In() {
             descripcion: '',
             stack: '',
             fecha_vencimiento: ''});
+
+        if(!data.message){
+            alert('Se ha agregado el producto de manera correcta')
+            return
+        }
         
         if(data.message.name === 'error'){
             alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
-        } else{
-            alert('Se ha agregado el producto de manera correcta')
+            return
         }
     }  
 

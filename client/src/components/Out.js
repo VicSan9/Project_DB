@@ -33,7 +33,7 @@ export default function Out() {
     }
 
     const loadProducts = async () => {
-        const res = await fetch('http://localhost:4000/products2')
+        const res = await fetch('http://localhost:4000/products')
         const data = await res.json()
         setProducts(data)
     }
@@ -60,8 +60,8 @@ export default function Out() {
         })  
 
         const data = await res.json()
-        console.log(data)
         const num_unico = data.num_unico
+        console.log(data)
 
         setTranProd(tranProd.num_unico = num_unico)
 
@@ -85,16 +85,26 @@ export default function Out() {
         const data2 = await res2.json()
         console.log(data2)
 
+        if(!data.message){
+            alert('Transacción registrada de manera correcta')
+            return
+        } 
+
+        if(data2.message.code === 'P0001'){
+            alert('Error: No se ha guardado la transacción debido a que has sobre pasado la cantidad de productos que hay disponibles')
+            return
+        }
+
+        if(data2.message.name === 'error'){
+            alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+            return
+        }
+
         if(data.message.name === 'error'){
             alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
-        } else{
-            if(data2.message.name === 'error'){
-                alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
-            } else{
-                alert('Transacción registrada de manera correacta')
-            }
+            return
         }
-    }
+    }        
 
     return (
         <Grid>
