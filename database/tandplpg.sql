@@ -50,12 +50,11 @@ BEGIN
 	SET stack = reducirProducto
 	WHERE p.codigo = codigoProducto;
 	
-	IF totalProductos < productoComprado THEN 
-	RAISE EXCEPTION 'The stack of products is 0';
-	
+	IF totalProductos = 0 THEN 
+	RAISE EXCEPTION 'The product is not available';	
 	ELSE
-	IF reducirProducto = 0 THEN 
-	DELETE FROM productos AS p WHERE P.stack = 0;
+	IF totalProductos < productoComprado THEN 
+	RAISE EXCEPTION 'The stack of products available is not enough';
 	
     END IF;
 	END IF;
