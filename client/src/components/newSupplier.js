@@ -1,10 +1,18 @@
 import Navbar from './Navbar';
 import { Button, Card, CardContent, Grid, TextField } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function NewSupplier() {
+
+    const navigate = useNavigate()
+
+    const handleClic = () => {
+        navigate('/suppliers')
+    }
     
-    const [newSupplier, setNewSupplier] = useState({  id_proveedor: '', 
+    const [newSupplier, setNewSupplier] = useState({
+        id_proveedor: '', 
                                                     nombre: '',
                                                     descripcion: '',
                                                     telefono: '',
@@ -14,25 +22,24 @@ export default function NewSupplier() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const res = await fetch('http://localhost:4000/products', {
+        const res = await fetch('http://localhost:4000/suppliers', {
             method: 'POST',
-            body: JSON.stringify(newProduct),
+            body: JSON.stringify(newSupplier),
             headers: { "content-Type": "application/json" }
         })  
 
         const data = await res.json()
 
-        setNewProduct({ 
-            nombre: '', 
-            p_compra_u: '',
-            p_venta_u: '',
-            lote: '',
+        setNewSupplier({
+            id_proveedor: '',
+            nombre: '',
             descripcion: '',
-            stack: '',
-            fecha_vencimiento: ''});
+            telefono: '',
+            direccion: ''
+        });
 
         if(!data.message){
-            alert('Se ha agregado el producto de manera correcta')
+            alert('Se ha agregado el proveedor de manera correcta')
             return
         }
         
@@ -44,8 +51,8 @@ export default function NewSupplier() {
 
     const handleChange = e => {
         console.log(e.target.name, e.target.value);
-        setNewProduct({
-        ...newProduct,
+        setNewSupplier({
+            ...newSupplier,
         [e.target.name]: e.target.value
         })
     }
@@ -80,24 +87,24 @@ export default function NewSupplier() {
                         <form onSubmit={handleSubmit}>
                             <Grid container direction="row" alignItems="center" justifyContent="left">
                                 <TextField
-                                    helperText="Escriba el nombre del producto"
+                                    helperText="Escriba el nombre del proveedor"
                                     variant="outlined"
                                     size="small"
-                                    label="Nombre del producto"
+                                    label="Nombre del proveedor"
                                     margin="normal"
                                     sx={{
                                         display: 'block',
                                         margin: '.8rem 0'
                                     }}
                                     name="nombre"
-                                    value={newProduct.nombre}
+                                    value={newSupplier.nombre}
                                     onChange={handleChange}>
                                 </TextField>
                                 <TextField
-                                    helperText="Escriba la descripción del producto"
+                                    helperText="Escriba una descripción del proveedor"
                                     variant="outlined"
                                     size="small"
-                                    label="Descripción del producto"
+                                    label="Descripción del proveedor"
                                     margin="normal"
                                     fullWidth
                                     sx={{
@@ -107,16 +114,16 @@ export default function NewSupplier() {
                                         width: '380px'
                                     }}
                                     name="descripcion"
-                                    value={newProduct.descripcion}
+                                    value={newSupplier.descripcion}
                                     onChange={handleChange}>
                                 </TextField>
                             </Grid>
                             <Grid container direction="row" alignItems="center" justifyContent="left">
                                 <TextField
-                                    helperText="Precio por unidad"
+                                    helperText="ID del proveedor"
                                     variant="outlined"
                                     size="small"
-                                    label="Precio de compra"
+                                    label="ID proveedor"
                                     margin="normal"
                                     fullWidth
                                     sx={{
@@ -124,15 +131,15 @@ export default function NewSupplier() {
                                         margin: '.8rem 0',
                                         width: '191px'
                                     }}
-                                    name="p_compra_u"
-                                    value={newProduct.p_compra_u}
+                                    name="id_proveedor"
+                                    value={newSupplier.id_proveedor}
                                     onChange={handleChange}>
                                 </TextField>
                                 <TextField
-                                    helperText="Precio por unidad"
+                                    helperText="Telefono del proveedor"
                                     variant="outlined"
                                     size="small"
-                                    label="Precio de venta"
+                                    label="Telefono"
                                     margin="normal"
                                     fullWidth
                                     sx={{
@@ -141,15 +148,15 @@ export default function NewSupplier() {
                                         ml: '15px',
                                         width: '191px'
                                     }}
-                                    name="p_venta_u"
-                                    value={newProduct.p_venta_u}
+                                    name="telefono"
+                                    value={newSupplier.telefono}
                                     onChange={handleChange}>
                                 </TextField>
                                 <TextField
-                                    helperText="Número de lote"
+                                    helperText="Dirección del proveedor"
                                     variant="outlined"
                                     size="small"
-                                    label="Lote"
+                                    label="Dirección"
                                     margin="normal"
                                     fullWidth
                                     sx={{
@@ -158,8 +165,8 @@ export default function NewSupplier() {
                                         ml: '15px',
                                         width: '193px'
                                     }}
-                                    name="lote"
-                                    value={newProduct.lote}
+                                    name="direccion"
+                                    value={newSupplier.direccion}
                                     onChange={handleChange}>
                                 </TextField>
                             </Grid>
@@ -169,8 +176,7 @@ export default function NewSupplier() {
                                     type="submit"
                                     fullWidth
                                     sx={{
-                                        mb: '24px',
-                                        ml: '15px',
+                                        mb: '18px',
                                         width: '193px'
                                     }}
                                 >
@@ -180,6 +186,9 @@ export default function NewSupplier() {
                         </form>
                     </CardContent>
                 </Card>
+                <Button onClick={handleClic} sx={{mt:'20px'}}>
+                    Volver a proveedores
+                </Button>
             </Grid>
         </Grid>
     )
