@@ -1,12 +1,10 @@
 import Navbar from './Navbar';
 import {
   Card, CardContent, Grid, Paper, Table, TableBody, TableCell, TableContainer,
-  TableHead, TableRow, tableCellClasses, Button
+  TableHead, TableRow, tableCellClasses
 } from "@mui/material";
 import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { DataGrid } from '@mui/x-data-grid';
-
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -27,15 +25,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-
-const columns = [
-  { field: 'id_proveedor', headerName: 'ID Proveedor', width: 70 },
-  { field: 'nombre', headerName: 'Nombre', width: 130 },
-  { field: 'descripcion', headerName: 'Descripción', width: 130 },
-  { field: 'telefono', headerName: 'Telefono', width: 130 },
-  { field: 'direccion', headerName: 'Dirección', width: 130 },
-
-];
 
 export default function Suppliers() {
 
@@ -88,30 +77,8 @@ export default function Suppliers() {
                       </StyledTableRow>
                     ))}
                   </TableBody>
-                </Table>                
+                </Table>
               </TableContainer>
-              <div style={{ height: 400, width: '100%' }}>
-                <DataGrid
-                 supplier={suppliers}
-                 columns={columns}
-                 pageSize={5}
-                 rowsPerPageOptions={[5]}
-                 checkboxSelection
-                />
-              </div>
-              <Button
-                variant="contained"
-                type="submit"
-                color = '#c62828'
-                fullWidth
-                sx={{
-                    mb:'24px',
-                    ml:'15px',
-                    width:'193px'
-                }}
-              >
-                Eliminar
-              </Button>
             </CardContent>
           </Card>
         </Grid>
