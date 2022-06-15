@@ -147,10 +147,10 @@ export default function Navbar() {
                             </BootstrapDialogTitle>
                             <DialogContent dividers>
                                 <Grid>
-                                    <Card boxShadow='none'>
+                                    <Card sx={{boxShadow:'none', width:'500px', height:'300px'}}>
                                         <CardContent>
                                             <div>
-                                                :D
+                                                Formulario para cambiar datos
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -158,7 +158,7 @@ export default function Navbar() {
                             </DialogContent>
                             <DialogActions>
                                 <Button autoFocus onClick={handleClose}>
-                                    Save changes
+                                    Guardar cambios
                                 </Button>
                             </DialogActions>
                         </BootstrapDialog>
