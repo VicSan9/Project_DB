@@ -10,6 +10,16 @@ const getAllAdministrators = async (req, res, next) => {
     }
 }
 
+const getAllAdministrators2 = async (req, res, next) => {
+    try {
+        const allAdministrators = await pool.query
+            ('SELECT * FROM administrador');
+        res.json(allAdministrators.rows);
+    } catch (error) {
+        next(error);
+    }
+}
+
 const getAdministrator = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -91,5 +101,6 @@ module.exports = {
     createAdministrator,
     deleteAdministrator,
     updateAdministrator,
-    loginAdministrator
+    loginAdministrator,
+    getAllAdministrators2
 }

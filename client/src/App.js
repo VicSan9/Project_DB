@@ -9,6 +9,7 @@ import Search from "./components/Search";
 import Suppliers from "./components/Suppliers";
 import RouteController from "./components/RouteController";
 import NewSupplier from "./components/newSupplier";
+import EditAdmin from "./components/EditAdmin";
 
 export default function App() {
   return (
@@ -41,6 +42,9 @@ export default function App() {
                      <Route exact
                             path='/suppliers/new'
                             element= {<RouteController componet = {NewSupplier} />} />
+                     <Route exact
+                            path='/edit-admin'
+                            element= {<RouteController componet = {EditAdmin} />} />
               </Routes>
        </BrowserRouter>
   )

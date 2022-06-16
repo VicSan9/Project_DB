@@ -1,63 +1,14 @@
 import {
     AppBar, Box, Toolbar, Avatar, Stack, Paper, Fade, Typography, Grid, Button, CardContent,
-    Card, DialogContent, DialogActions, Dialog, DialogTitle
+    Card
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import BackpackIcon from '@mui/icons-material/Backpack';
-import PropTypes from 'prop-types';
-import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 
 export default function Navbar() {
-    const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-        '& .MuiDialogContent-root': {
-            padding: theme.spacing(2),
-        },
-        '& .MuiDialogActions-root': {
-            padding: theme.spacing(1),
-        },
-    }));
-
-    const BootstrapDialogTitle = (props) => {
-        const { children, onClose, ...other } = props;
-
-        return (
-            <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-                {children}
-                {onClose ? (
-                    <IconButton
-                        aria-label="close"
-                        onClick={onClose}
-                        sx={{
-                            position: 'absolute',
-                            right: 8,
-                            top: 8,
-                            color: (theme) => theme.palette.grey[500],
-                        }}
-                    >
-                        <CloseIcon />
-                    </IconButton>
-                ) : null}
-            </DialogTitle>
-        );
-    };
-
-    BootstrapDialogTitle.propTypes = {
-        children: PropTypes.node,
-        onClose: PropTypes.func.isRequired,
-    };
-
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
 
     const [checked, setChecked] = React.useState(false);
 
@@ -81,6 +32,10 @@ export default function Navbar() {
         localStorage.clear()
         navigate("/login")
     };
+
+    const handleClic3 = () => {
+        navigate('/edit-admin')
+    }
     
     const navigate = useNavigate()
 
@@ -130,37 +85,12 @@ export default function Navbar() {
                 <Card sx={{ mt: '20px', backgroundColor: 'transparent', boxShadow: 'none' }}>
                     <CardContent>
                         <Button
-                            onClick={handleClickOpen}
+                            onClick={handleClic3}
                             variant="text"
                             fullWidth
                         >
                             Editar admin
                         </Button>
-                        <BootstrapDialog
-                            onClose={handleClose}
-                            aria-labelledby="customized-dialog-title"
-                            open={open}
-                        >
-                            <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                                Editar administrador
-                            </BootstrapDialogTitle>
-                            <DialogContent dividers>
-                                <Grid>
-                                    <Card sx={{boxShadow:'none', width:'500px', height:'300px'}}>
-                                        <CardContent>
-                                            <div>
-                                                Formulario para cambiar datos
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                </Grid>
-                            </DialogContent>
-                            <DialogActions>
-                                <Button autoFocus onClick={handleClose}>
-                                    Guardar cambios
-                                </Button>
-                            </DialogActions>
-                        </BootstrapDialog>
                     </CardContent>
                 </Card>
                 <Box container mt="270px" >

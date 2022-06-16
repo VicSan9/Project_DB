@@ -186,7 +186,7 @@ export default function NewSupplier() {
                         </form>
                     </CardContent>
                 </Card>
-                <Button onClick={handleClic} sx={{mt:'20px'}}>
+                <Button onClick={handleClic} sx={{mt:'25px'}}>
                     Volver a proveedores
                 </Button>
             </Grid>

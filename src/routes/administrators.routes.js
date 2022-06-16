@@ -5,12 +5,15 @@ const {
     createAdministrator,
     deleteAdministrator,
     updateAdministrator,
-    loginAdministrator
+    loginAdministrator,
+    getAllAdministrators2
 } = require('../controllers/administrators.controller');
 
 const router = Router();
 
 router.get('/administrators', getAllAdministrators);
+
+router.get('/administrators2', getAllAdministrators2);
 
 router.get('/administrators/:id', getAdministrator);
 
