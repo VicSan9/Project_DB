@@ -55,11 +55,11 @@ return (
             alignItems="center"
             justifyContent="left">
             <h2>
-                Entradas
+                Editar usuario y contraseña
             </h2>
             <Card
                 sx={{
-                    width: "450px",
+                    width: "430px",
                     direction: "row",
                     mt: '10px',
                     backgroundColor: '#fff',
