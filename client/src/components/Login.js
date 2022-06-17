@@ -4,7 +4,6 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./NavbarLogin"
 
-
 export default function Login() {
 
   const navigate = useNavigate()

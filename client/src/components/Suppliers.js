@@ -33,25 +33,25 @@ export default function Suppliers() {
 
   const [suppliers, setSuppliers] = useState([])
 
-    const loadSuppliers = async () => {
-      const res = await fetch('http://localhost:4000/suppliers')
-      const data = await res.json()
-      setSuppliers(data)
-    }
+  const loadSuppliers = async () => {
+    const res = await fetch('http://localhost:4000/suppliers')
+    const data = await res.json()
+    setSuppliers(data)
+  }
 
   useEffect(() => {
     loadSuppliers()
-    }, [])
+  }, [])
 
-  const handleDelead = async(id_proveedor) => {
-    
+  const handleDelead = async (id_proveedor) => {
+
     await fetch(`http://localhost:4000/suppliers/${id_proveedor}`, {
       method: 'DELETE',
-    }) 
-    
+    })
+
     setSuppliers(suppliers.filter((supplier) => supplier.id_proveedor !== id_proveedor))
   }
-  
+
   const handleClic = () => {
     navigate('/suppliers/new')
   }
@@ -60,7 +60,7 @@ export default function Suppliers() {
       <>
         <Navbar></Navbar>
         <Grid
-          container 
+          container
           direction="column"
           alignItems="center"
           alignContent="center"
@@ -68,7 +68,7 @@ export default function Suppliers() {
           <h2>
             Proveedores
           </h2>
-          <Card sx={{ backgroundColor: "transparent", boxShadow: "none"}}>
+          <Card sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
             <CardContent sx={{ width: 800 }} >
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -93,11 +93,11 @@ export default function Suppliers() {
                         <StyledTableCell align="right">{supplier.telefono}</StyledTableCell>
                         <StyledTableCell align="right">{supplier.direccion}</StyledTableCell>
                         <StyledTableCell aling="right">
-                          <Button onClick={() => handleDelead(supplier.id_proveedor)} sx={{color:'red'}}>Eliminar
-                          </Button>
-                        </StyledTableCell>
-                      </StyledTableRow>
-                    ))}
+                        <Button onClick={() => handleDelead(supplier.id_proveedor)} sx={{ color: 'red' }}>Eliminar
+                        </Button>
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))}
                   </TableBody>
                 </Table>
               </TableContainer>

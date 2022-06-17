@@ -45,7 +45,7 @@ export default function Search() {
         setDates(data)
     }
 
-    React.useEffect(() =>  {
+    React.useEffect(() => {
         loadDates()
     }, [])
 
@@ -57,7 +57,7 @@ export default function Search() {
         setMembers(data)
     }
 
-    React.useEffect(() =>  {
+    React.useEffect(() => {
         loadMembers()
     }, [])
 
@@ -69,7 +69,7 @@ export default function Search() {
         setSales(data)
     }
 
-    React.useEffect(() =>  {
+    React.useEffect(() => {
         loadSales()
     }, [])
 
@@ -204,9 +204,9 @@ export default function Search() {
                                 </TableContainer>
                             </AccordionDetails>
                         </Accordion>
-                    </div>      
+                    </div>
                 </Card>
             </Grid>
-        </Grid> 
+        </Grid>
     )
 }
