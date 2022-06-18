@@ -1,9 +1,13 @@
 import Navbar from './Navbar';
 import { Button, Card, CardContent, Grid, TextField } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function In() {
+    const navigate = useNavigate()
+    const params = useParams()
 
+    const [editing, setEditing] = useState(false)
     const [newProduct, setNewProduct] = useState({  nombre: '', 
                                                     p_compra_u: '',
                                                     p_venta_u: '',
@@ -14,42 +18,94 @@ export default function In() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        const res = await fetch('http://localhost:4000/products', {
-            method: 'POST',
-            body: JSON.stringify(newProduct),
-            headers: { "content-Type": "application/json" }
-        })  
 
-        const data = await res.json()
+        if (editing) {
+            const res = await fetch(`http://localhost:4000/products/${params.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(newProduct),
+                headers: { "content-Type": "application/json" }
+            })
+            const data = await res.json()
 
-        setNewProduct({ 
-            nombre: '', 
-            p_compra_u: '',
-            p_venta_u: '',
-            lote: '',
-            descripcion: '',
-            stack: '',
-            fecha_vencimiento: ''});
+            setNewProduct({
+                nombre: '',
+                p_compra_u: '',
+                p_venta_u: '',
+                lote: '',
+                descripcion: '',
+                stack: '',
+                fecha_vencimiento: ''
+            });
 
-        if(!data.message){
-            alert('Se ha agregado el producto de manera correcta')
-            return
-        }
-        
-        if(data.message.name === 'error'){
-            alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
-            return
+            if (!data.message) {
+                alert('Se ha editado el producto de manera correcta')
+                navigate('/inventory')
+                return
+            }
+
+            if (data.message.name === 'error') {
+                alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+                return
+            }
+
+        } else {
+            const res = await fetch('http://localhost:4000/products', {
+                method: 'POST',
+                body: JSON.stringify(newProduct),
+                headers: { "content-Type": "application/json" }
+            }) 
+            const data = await res.json()
+
+            setNewProduct({
+                nombre: '',
+                p_compra_u: '',
+                p_venta_u: '',
+                lote: '',
+                descripcion: '',
+                stack: '',
+                fecha_vencimiento: ''
+            });
+
+            if (!data.message) {
+                alert('Se ha agregado el producto de manera correcta')
+                return
+            }
+
+            if (data.message.name === 'error') {
+                alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+                return
+            }
         }
     }  
 
     const handleChange = e => {
-        console.log(e.target.name, e.target.value);
         setNewProduct({
         ...newProduct,
         [e.target.name]: e.target.value
         })
     }
+
+    const loadProduct = async (id) => {
+        const res = await fetch(`http://localhost:4000/products/${id}`)
+        const data = await res.json()
+        setNewProduct({
+            nombre: data.nombre,
+            p_compra_u: data.p_compra_u,
+            p_venta_u: data.p_venta_u,
+            lote: data.lote,
+            descripcion: data.descripcion,
+            stack: data.stack,
+            fecha_vencimiento: data.fecha_vencimiento
+        });
+
+        setEditing(true)
+    }
+
+    useEffect(() => {
+        if (params.id) {
+            loadProduct(params.id)
+        }
+    }, [params.id])
 
     return (
         <Grid>
@@ -60,7 +116,7 @@ export default function In() {
                 alignItems="center"
                 justifyContent="left">
                 <h2>
-                    Entradas
+                    {editing ? 'Editar producto' : 'Entrada'}
                 </h2>
                 <Card 
                 sx={{

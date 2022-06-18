@@ -9,13 +9,11 @@ const RouteController = ({ componet: Componet, ...rest }) => {
         const auth = localStorage.getItem('auth')
 
         if (auth === null) {
-            console.log(auth)
             setIsAuth(false)
             return
         }
         
         if (auth === 'yes') {
-            console.log(auth)
             setIsAuth(true)
             return
         }

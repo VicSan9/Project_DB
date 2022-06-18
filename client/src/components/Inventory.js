@@ -1,8 +1,9 @@
 import Navbar from './Navbar';
 import { Card, CardContent, Grid, Paper, Table, TableBody, TableCell, TableContainer,
-         TableHead, TableRow, tableCellClasses } from "@mui/material";
+         TableHead, TableRow, tableCellClasses, Button } from "@mui/material";
 import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 export default function Inventory() {
 
@@ -34,9 +35,29 @@ export default function Inventory() {
         setProducts(data)
     }
 
+    const navigate = useNavigate()
+
+    const handleDelead = async (codigo) => {
+
+        const res = await fetch(`http://localhost:4000/products/${codigo}`, {
+          method: 'DELETE',
+        })
+
+        if(res.status === 200){
+            alert('No se puede borrar el producto porque ya se han hecho una o mas transacciones con este.')
+            return
+        }
+
+        if(res.status === 204){
+            alert('Producto eliminado del inventario')
+        }
+    
+        setProducts(products.filter((product) => product.codigo !== codigo))
+      }
+
     useEffect(() =>  {
         loadProducts()
-    }, [])
+    }, []) 
 
     return (
         <>
@@ -59,16 +80,25 @@ export default function Inventory() {
                                         <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Descripción</StyledTableCell>
                                         <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Lote</StyledTableCell>
                                         <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Stock (cantidad)</StyledTableCell>
+                                        <StyledTableCell style={{ backgroundColor: "#484848" }} align="center">Acción</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     {
                                     products.map((product) => (
-                                        <StyledTableRow key={product.lote}>
+                                        <StyledTableRow key={product.codigo}>
                                             <StyledTableCell align="left">{product.nombre}</StyledTableCell>
                                             <StyledTableCell align="right">{product.descripcion}</StyledTableCell>
                                             <StyledTableCell align="right">{product.lote}</StyledTableCell>
                                             <StyledTableCell align="right">{product.stack}</StyledTableCell>
+                                            <StyledTableCell aling="right">
+                                                <Button onClick={() => handleDelead(product.codigo)} sx={{ color: 'red' }}>
+                                                    Eliminar
+                                                </Button>
+                                                <Button onClick={() => navigate(`/inventory/${product.codigo}/edit`)}>
+                                                    Editar
+                                                </Button>
+                                            </StyledTableCell>
                                         </StyledTableRow>
                                     ))
                                     }

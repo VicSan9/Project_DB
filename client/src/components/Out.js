@@ -61,7 +61,6 @@ export default function Out() {
 
         const data = await res.json()
         const num_unico = data.num_unico
-        console.log(data)
 
         setTranProd(tranProd.num_unico = num_unico)
 
@@ -83,7 +82,6 @@ export default function Out() {
         })
         
         const data2 = await res2.json()
-        console.log(data2)
 
         if(!data.message){
             alert('Transacción registrada de manera correcta')

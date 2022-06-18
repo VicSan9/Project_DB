@@ -17,16 +17,11 @@ export default function EditAdmin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(final)
-
-        const res = await fetch('http://localhost:4000/administrators/6110', {
+        await fetch('http://localhost:4000/administrators/6110', {
             method: 'PUT',
             body: JSON.stringify(final),
             headers: { "content-Type": "application/json" }
         })
-
-        const data = await res.json()
-        console.log(data)
 
         sedFinal({
             id_admin: '',

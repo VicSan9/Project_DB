@@ -12,7 +12,7 @@ export default function NewSupplier() {
     }
     
     const [newSupplier, setNewSupplier] = useState({
-        id_proveedor: '', 
+                                                    id_proveedor: '', 
                                                     nombre: '',
                                                     descripcion: '',
                                                     telefono: '',
@@ -50,7 +50,6 @@ export default function NewSupplier() {
     }  
 
     const handleChange = e => {
-        console.log(e.target.name, e.target.value);
         setNewSupplier({
             ...newSupplier,
         [e.target.name]: e.target.value

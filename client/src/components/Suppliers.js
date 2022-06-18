@@ -79,7 +79,7 @@ export default function Suppliers() {
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Descripción</StyledTableCell>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Telefono</StyledTableCell>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Dirección</StyledTableCell>
-                      <StyledTableCell style={{ backgroundColor: "#484848" }} align="center">Eliminar</StyledTableCell>
+                      <StyledTableCell style={{ backgroundColor: "#484848" }} align="center">Acción</StyledTableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -93,8 +93,9 @@ export default function Suppliers() {
                         <StyledTableCell align="right">{supplier.telefono}</StyledTableCell>
                         <StyledTableCell align="right">{supplier.direccion}</StyledTableCell>
                         <StyledTableCell aling="right">
-                        <Button onClick={() => handleDelead(supplier.id_proveedor)} sx={{ color: 'red' }}>Eliminar
-                        </Button>
+                          <Button onClick={() => handleDelead(supplier.id_proveedor)} sx={{ color: 'red' }}>
+                            Eliminar
+                          </Button>
                       </StyledTableCell>
                     </StyledTableRow>
                   ))}

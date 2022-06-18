@@ -28,7 +28,7 @@ export default function App() {
                             path='/informs'
                             element= {<RouteController componet = {Informs} />} />
                      <Route exact
-                            path='/Inventory'
+                            path='/inventory'
                             element= {<RouteController componet = {Inventory} />} />
                      <Route exact
                             path='/out'
@@ -45,6 +45,9 @@ export default function App() {
                      <Route exact
                             path='/edit-admin'
                             element= {<RouteController componet = {EditAdmin} />} />
+                     <Route exact
+                            path='/inventory/:id/edit'
+                            element= {<RouteController componet = {In} />} />
               </Routes>
        </BrowserRouter>
   )
