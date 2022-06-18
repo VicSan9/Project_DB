@@ -1,8 +1,8 @@
 INSERT INTO miembros (cc, nombre, telefono, direccion) 
-VALUES 	(1010150276, 'Víctor Alfonso Sánchez', 3176215539, 'Cr.5- No.25-60'),
-		(3124124141, 'Rosa Isable Rosero', 3215591266, 'Cr.25- No 55-21N'),
-        (3124125125, 'Mercy Castro', 3215125126, 'Cr.32-No. 23-12');
-
+VALUES 	(3124125125, 'Mercy Castro', 3215125126, 'Cr.32-No. 23-12'),
+		(1010150276, 'Víctor Alfonso Sánchez', 3176215539, 'Cr.5- No.25-60'),
+		(3124124141, 'Rosa Isable Rosero', 3215591266, 'Cr.25- No 55-21N');
+        
 INSERT INTO vendedores (id_miembro)
 VALUES 	(2110),
 		(2111);
@@ -23,9 +23,9 @@ VALUES 	('Arroz Diana', 1500, 800, '27145', 'Arroz Diana 1 libra', 50, '2023/01/
  		('Trululu', 1000, 500, '25236', 'Gomitas de osos', 10, '2024/06/15');
         
 INSERT INTO proveedores
-VALUES 	(12214, 'Proovedor 1', 'Proovedor de gomitas', 3176215539, 'Cr.5- No.25-60'),
-		(12125, 'Proovedor 2', 'Proovedor de frituras', 3215591266, 'Cr.25- No 55-21N'),
-        (12512, 'Proovedor 3', 'Proovedor de alimentos', 3215125126, 'Cr.32-No. 23-12');
+VALUES 	(12214, 'Proveedor 1', 'Proveedor de gomitas', 3176215539, 'Cr.5- No.25-60'),
+		(12125, 'Proveedor 2', 'Proveedor de frituras', 3215591266, 'Cr.25- No 55-21N'),
+        (12512, 'Proveedor 3', 'Proveedor de alimentos', 3215125126, 'Cr.32-No. 23-12');
         
 INSERT INTO productoproveedor (id_proveedor, codigo)
 VALUES 	(12125, 3111),
