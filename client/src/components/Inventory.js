@@ -71,7 +71,7 @@ export default function Inventory() {
                     Inventario
                 </h2>
                 <Card sx={{backgroundColor:"transparent", boxShadow: "none"}}>
-                    <CardContent sx={{width:750}} >
+                    <CardContent sx={{width:980}} >
                         <TableContainer component={Paper}>
                             <Table sx={{ minWidth: 700 }} aria-label="customized table">
                                 <TableHead>
@@ -80,6 +80,8 @@ export default function Inventory() {
                                         <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Descripción</StyledTableCell>
                                         <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Lote</StyledTableCell>
                                         <StyledTableCell style={{backgroundColor:"#484848"}} align="right">Stock (cantidad)</StyledTableCell>
+                                        <StyledTableCell style={{backgroundColor:"#484848"}} align="right">P. Compra unidad</StyledTableCell>
+                                        <StyledTableCell style={{backgroundColor:"#484848"}} align="right">P. Venta unidad</StyledTableCell>
                                         <StyledTableCell style={{ backgroundColor: "#484848" }} align="center">Acción</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
@@ -91,6 +93,8 @@ export default function Inventory() {
                                             <StyledTableCell align="right">{product.descripcion}</StyledTableCell>
                                             <StyledTableCell align="right">{product.lote}</StyledTableCell>
                                             <StyledTableCell align="right">{product.stack}</StyledTableCell>
+                                            <StyledTableCell align="right">{product.p_compra_u}</StyledTableCell>
+                                            <StyledTableCell align="right">{product.p_venta_u}</StyledTableCell>
                                             <StyledTableCell aling="right">
                                                 <Button onClick={() => handleDelead(product.codigo)} sx={{ color: 'red' }}>
                                                     Eliminar

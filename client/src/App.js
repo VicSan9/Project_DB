@@ -10,6 +10,7 @@ import Suppliers from "./components/Suppliers";
 import RouteController from "./components/RouteController";
 import NewSupplier from "./components/newSupplier";
 import EditAdmin from "./components/EditAdmin";
+import NewMember from "./components/newMember";
 
 export default function App() {
   return (
@@ -48,6 +49,15 @@ export default function App() {
                      <Route exact
                             path='/inventory/:id/edit'
                             element= {<RouteController componet = {In} />} />
+                     <Route exact
+                            path='/suppliers/:id/edit'
+                            element= {<RouteController componet = {NewSupplier} />} />
+                     <Route exact
+                            path='/member/new'
+                            element= {<RouteController componet = {NewMember} />} />
+                     <Route exact
+                            path='/member/:id/edit'
+                            element= {<RouteController componet = {NewMember} />} />
               </Routes>
        </BrowserRouter>
   )

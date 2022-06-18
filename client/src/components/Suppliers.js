@@ -69,15 +69,15 @@ export default function Suppliers() {
             Proveedores
           </h2>
           <Card sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
-            <CardContent sx={{ width: 800 }} >
+            <CardContent sx={{ width: 920 }} >
               <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <Table sx={{ minWidth: 750 }} aria-label="customized table">
                   <TableHead>
                     <TableRow>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} > ID Proveedor</StyledTableCell>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Nombre</StyledTableCell>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Descripción</StyledTableCell>
-                      <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Telefono</StyledTableCell>
+                      <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Teléfono</StyledTableCell>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Dirección</StyledTableCell>
                       <StyledTableCell style={{ backgroundColor: "#484848" }} align="center">Acción</StyledTableCell>
                     </TableRow>
@@ -95,6 +95,9 @@ export default function Suppliers() {
                         <StyledTableCell aling="right">
                           <Button onClick={() => handleDelead(supplier.id_proveedor)} sx={{ color: 'red' }}>
                             Eliminar
+                          </Button>
+                          <Button onClick={() => navigate(`/suppliers/${supplier.id_proveedor}/edit`)}>
+                            Editar
                           </Button>
                       </StyledTableCell>
                     </StyledTableRow>

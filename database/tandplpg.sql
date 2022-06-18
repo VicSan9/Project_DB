@@ -95,7 +95,7 @@ ORDER BY P.fecha_vencimiento ASC;
 
 --Vista inventario 
 CREATE VIEW inventory AS
-SELECT P.codigo, P.nombre, P.descripcion, P.lote, P.stack
+SELECT P.codigo, P.nombre, P.descripcion, P.p_compra_u, P.p_venta_u, P.lote, P.stack
 FROM productos AS P
 WHERE P.stack > 0;
 

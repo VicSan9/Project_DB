@@ -1,16 +1,14 @@
 import Navbar from './Navbar';
 import { Button, Card, CardContent, Grid, TextField } from "@mui/material";
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function NewSupplier() {
 
     const navigate = useNavigate()
+    const params = useParams()
 
-    const handleClic = () => {
-        navigate('/suppliers')
-    }
-    
+    const [editing, setEditing] = useState(false)
     const [newSupplier, setNewSupplier] = useState({
                                                     id_proveedor: '', 
                                                     nombre: '',
@@ -19,33 +17,66 @@ export default function NewSupplier() {
                                                     direccion: ''
                                                     });
 
+    const handleClic = () => {
+        navigate('/suppliers')
+    } 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        const res = await fetch('http://localhost:4000/suppliers', {
+
+        if (editing) {
+            const res = await fetch(`http://localhost:4000/suppliers/${params.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(newSupplier),
+                headers: { "content-Type": "application/json" }
+            })
+
+            const data = await res.json()
+
+            setNewSupplier({
+                id_proveedor: '',
+                nombre: '',
+                descripcion: '',
+                telefono: '',
+                direccion: ''
+            });
+
+            if(!data.message){
+                alert('Se ha modificado el proveedor de manera correcta')
+                navigate('/suppliers')
+                return
+            }
+            
+            if(data.message.name === 'error'){
+                alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+                return
+            }
+        } else {
+            const res = await fetch('http://localhost:4000/suppliers', {
             method: 'POST',
             body: JSON.stringify(newSupplier),
             headers: { "content-Type": "application/json" }
-        })  
+            })  
 
-        const data = await res.json()
+            const data = await res.json()
 
-        setNewSupplier({
-            id_proveedor: '',
-            nombre: '',
-            descripcion: '',
-            telefono: '',
-            direccion: ''
-        });
+            setNewSupplier({
+                id_proveedor: '',
+                nombre: '',
+                descripcion: '',
+                telefono: '',
+                direccion: ''
+            });
 
-        if(!data.message){
-            alert('Se ha agregado el proveedor de manera correcta')
-            return
-        }
-        
-        if(data.message.name === 'error'){
-            alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
-            return
+            if(!data.message){
+                alert('Se ha agregado el proveedor de manera correcta')
+                return
+            }
+            
+            if(data.message.name === 'error'){
+                alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+                return
+            }
         }
     }  
 
@@ -55,6 +86,26 @@ export default function NewSupplier() {
         [e.target.name]: e.target.value
         })
     }
+
+    const loadSupplier = async (id) => {
+        const res = await fetch(`http://localhost:4000/suppliers/${id}`)
+        const data = await res.json()
+        setNewSupplier({
+            id_proveedor: data.id_proveedor,
+            nombre: data.nombre,
+            descripcion: data.descripcion,
+            telefono: data.telefono,
+            direccion: data.direccion
+        });
+
+        setEditing(true)
+    }
+
+    useEffect(() => {
+        if (params.id) {
+            loadSupplier(params.id)
+        }
+    }, [params.id])
 
     return (
         <Grid>
@@ -135,10 +186,10 @@ export default function NewSupplier() {
                                     onChange={handleChange}>
                                 </TextField>
                                 <TextField
-                                    helperText="Telefono del proveedor"
+                                    helperText="Teléfono del proveedor"
                                     variant="outlined"
                                     size="small"
-                                    label="Telefono"
+                                    label="Teléfono"
                                     margin="normal"
                                     fullWidth
                                     sx={{

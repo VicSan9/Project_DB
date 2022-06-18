@@ -2,16 +2,23 @@ import Navbar from './Navbar';
 import {
     Grid, Typography, AccordionDetails, AccordionSummary,
     Accordion, Card, TableCell, tableCellClasses, TableRow, TableContainer,
-    Paper, Table, TableBody, TableHead
+    Paper, Table, TableBody, TableHead, Button
 } from "@mui/material";
 import * as React from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Search() {
 
+    const navigate = useNavigate()
+
     const [expanded, setExpanded] = React.useState(false);
+
+    const handleClic = () => {
+        navigate('/member/new')
+    }
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -88,7 +95,7 @@ export default function Search() {
                     sx={{
                         boxShadow: "none",
                         backgroundColor: "transparent",
-                        width: "715px",
+                        width: "850px",
                         direction: "row",
                         mt: '10px'
                     }}>
@@ -151,6 +158,7 @@ export default function Search() {
                                                 <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Nombre</StyledTableCell>
                                                 <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Dirección</StyledTableCell>
                                                 <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Telefono</StyledTableCell>
+                                                <StyledTableCell style={{ backgroundColor: "#484848" }} align="center">Acción</StyledTableCell>
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
@@ -162,11 +170,21 @@ export default function Search() {
                                                         <StyledTableCell align="right">{member.nombre}</StyledTableCell>
                                                         <StyledTableCell align="right">{member.direccion}</StyledTableCell>
                                                         <StyledTableCell align="right">{member.telefono}</StyledTableCell>
+                                                        <StyledTableCell aling="right">
+                                                            <Button onClick={() => navigate(`/member/${member.id_miembro}/edit`)}>
+                                                                Editar
+                                                            </Button>
+                                                        </StyledTableCell>
                                                     </StyledTableRow>
                                                 ))}
                                         </TableBody>
                                     </Table>
                                 </TableContainer>
+                                <Grid container alignContent='center' alignItems='center' direction='column'>
+                                    <Button sx={{mt:'20px'}} onClick={handleClic}>
+                                        Agregar nuevo miembro
+                                    </Button>
+                                </Grid>
                             </AccordionDetails>
                         </Accordion>
                         <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
