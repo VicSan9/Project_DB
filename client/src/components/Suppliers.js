@@ -45,9 +45,13 @@ export default function Suppliers() {
 
   const handleDelead = async (id_proveedor) => {
 
-    await fetch(`http://localhost:4000/suppliers/${id_proveedor}`, {
+    const res = await fetch(`http://localhost:4000/suppliers/${id_proveedor}`, {
       method: 'DELETE',
     })
+
+    if(res.status === 204){
+      alert('Miembro eliminado')
+    }
 
     setSuppliers(suppliers.filter((supplier) => supplier.id_proveedor !== id_proveedor))
   }

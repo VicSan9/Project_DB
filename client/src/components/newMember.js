@@ -4,6 +4,105 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function NewMember() {
+
+    const navigate = useNavigate()
+    const params = useParams()
+
+    const [editing, setEditing] = useState(false)
+    const [member, setMember
+    ] = useState({
+        cc: '',
+        nombre: '',
+        telefono: '',
+        direccion: '',
+    });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (editing) {
+            const res = await fetch(`http://localhost:4000/members/${params.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(member),
+                headers: { "content-Type": "application/json" }
+            })
+            const data = await res.json()
+
+            setMember
+            ({
+                cc: '',
+                nombre: '',
+                telefono: '',
+                direccion: '',
+            });
+
+            if (!data.message) {
+                alert('Se ha editado el miembro de manera correcta')
+                navigate('/search')
+                return
+            }
+
+            if (data.message.name === 'error') {
+                alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+                return
+            }
+
+        } else {
+            const res = await fetch('http://localhost:4000/members', {
+                method: 'POST',
+                body: JSON.stringify(member),
+                headers: { "content-Type": "application/json" }
+            })
+            const data = await res.json()
+
+            setMember
+            ({
+                cc: '',
+                nombre: '',
+                telefono: '',
+                direccion: '',
+            });
+
+            if (!data.message) {
+                alert('Se ha agregado el miembro de manera correcta')
+                navigate('/search')
+                return
+            }
+
+            if (data.message.name === 'error') {
+                alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
+                return
+            }
+        }
+    }
+
+    const handleChange = e => {
+        setMember
+        ({...member,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const loadMember = async (id) => {
+        const res = await fetch(`http://localhost:4000/members/${id}`)
+        const data = await res.json()
+        setMember
+        ({
+            cc: data.cc,
+            nombre: data.nombre,
+            telefono: data.telefono,
+            direccion: data.direccion,
+        });
+
+        setEditing(true)
+    }
+
+    useEffect(() => {
+        if (params.id) {
+            loadMember(params.id)
+        }
+    }, [params.id])
+
     return(
         <Grid>
             <Navbar></Navbar>
@@ -13,7 +112,7 @@ export default function NewMember() {
                 alignItems="center"
                 justifyContent="left">
                 <h2>
-                    Nuevo miembro
+                    {editing ? 'Editar miembro' : 'Nuevo miembro'}
                 </h2>
                 <Card 
                 sx={{
@@ -31,7 +130,7 @@ export default function NewMember() {
                     boxShadow: '0px 0px 15px 0px',
                 }}>
                     <CardContent>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <Grid container direction="row" alignItems="center" justifyContent="left">
                                 <TextField
                                     helperText="Cédula de ciudadania"
@@ -45,7 +144,9 @@ export default function NewMember() {
                                         margin: '.8rem 0',
                                         width: '191px'
                                     }}
-                                    name="p_compra_u">
+                                    name="cc"
+                                    value={member.cc}
+                                    onChange={handleChange}>
                                 </TextField>
                                 <TextField
                                     helperText="Nombre completo"
@@ -60,7 +161,9 @@ export default function NewMember() {
                                         ml: '15px',
                                         width: '398px'
                                     }}
-                                    name="p_venta_u">
+                                    name="nombre"
+                                    value={member.nombre}
+                                    onChange={handleChange}>
                                 </TextField>
                             </Grid>
                             <Grid container direction="row" alignItems="center" justifyContent="left">
@@ -76,7 +179,9 @@ export default function NewMember() {
                                         margin: '.8rem 0',
                                         width: '191px'
                                     }}
-                                    name="fecha_vencimiento">
+                                    name="telefono"
+                                    value={member.telefono}
+                                    onChange={handleChange}>
                                 </TextField>
                                 <TextField
                                     helperText="Lugar de residencia"
@@ -91,7 +196,9 @@ export default function NewMember() {
                                         ml: '15px',
                                         width: '191px'
                                     }}
-                                    name="stack">
+                                    name="direccion"
+                                    value={member.direccion}
+                                    onChange={handleChange}>
                                 </TextField>
                                 <Button
                                     variant="contained"

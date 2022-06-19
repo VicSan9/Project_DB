@@ -4,11 +4,11 @@ VALUES 	(3124125125, 'Mercy Castro', 3215125126, 'Cr.32-No. 23-12'),
 		(3124124141, 'Rosa Isable Rosero', 3215591266, 'Cr.25- No 55-21N');
         
 INSERT INTO vendedores (id_miembro)
-VALUES 	(2110),
+VALUES 	(2112),
 		(2111);
 
 INSERT INTO administrador (id_miembro, contraseña, user_admin)
-VALUES 	(2112, '1234', 'Mercy09');
+VALUES 	(2110, '1234', 'Mercy09');
 
 INSERT INTO transacciones (fecha, id_miembro) VALUES('2022/12/31', 2110);
 INSERT INTO transacciones (fecha, id_miembro) VALUES('2022/12/31', 2112);

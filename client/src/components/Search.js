@@ -80,6 +80,24 @@ export default function Search() {
         loadSales()
     }, [])
 
+    const handleDelead = async (id) => {
+
+        const res = await fetch(`http://localhost:4000/members/${id}`, {
+          method: 'DELETE',
+        })
+        
+        if(res.status === 200){
+            alert('No se puede borrar el miembro porque ya se han registrado transacciones con su codigo.')
+            return
+        }
+
+        if(res.status === 204){
+            alert('Miembro eliminado')
+        }
+
+        setMembers(members.filter((member) => member.id_miembro !== id))
+    }
+
     return (
         <Grid>
             <Navbar></Navbar>
@@ -95,7 +113,7 @@ export default function Search() {
                     sx={{
                         boxShadow: "none",
                         backgroundColor: "transparent",
-                        width: "850px",
+                        width: "950px",
                         direction: "row",
                         mt: '10px'
                     }}>
@@ -171,6 +189,9 @@ export default function Search() {
                                                         <StyledTableCell align="right">{member.direccion}</StyledTableCell>
                                                         <StyledTableCell align="right">{member.telefono}</StyledTableCell>
                                                         <StyledTableCell aling="right">
+                                                            <Button onClick={() => handleDelead(member.id_miembro)} sx={{color:'red'}}>
+                                                                Eliminar
+                                                            </Button>
                                                             <Button onClick={() => navigate(`/member/${member.id_miembro}/edit`)}>
                                                                 Editar
                                                             </Button>

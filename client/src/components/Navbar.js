@@ -54,8 +54,8 @@ export default function Navbar() {
         }} 
         elevation={10}>
             <Grid height={'90vh'} container direction="column" alignContent="center" alignItems="center" justifyContent="center">
-                <Grid>
-                    <Box container mt="0px" ml="27px">
+                <Grid container direction="column" alignContent="center" alignItems="center" justifyContent="center">
+                    <Box>
                         <Avatar
                             alt="Remy Sharp"
                             sx={{width: 50, height: 50 }}>     
@@ -64,17 +64,15 @@ export default function Navbar() {
                     <Typography 
                         fontWeight="bold"
                         mt="15px"
-                        ml="3px"
                         component="h2"
                         color="#000"
-                    >{
+                    >   {
                             admin.map((ad) => (
                                 ad.nombre
                             ))
                         }
                     </Typography>
                     <Typography 
-                        ml="10px"
                         mt="2px"
                         component="h5"
                         color="#000"
@@ -93,7 +91,7 @@ export default function Navbar() {
                         </Button>
                     </CardContent>
                 </Card>
-                <Box container mt="270px" >
+                <Box container mt="260px" >
                     <Button
                         onClick={handleClic2}
                         variant="text"
