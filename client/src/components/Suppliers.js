@@ -50,7 +50,7 @@ export default function Suppliers() {
     })
 
     if(res.status === 204){
-      alert('Miembro eliminado')
+      alert('Proveedor eliminado')
     }
 
     setSuppliers(suppliers.filter((supplier) => supplier.id_proveedor !== id_proveedor))

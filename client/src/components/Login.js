@@ -23,7 +23,7 @@ export default function Login() {
     console.log(data)
     
     if (res.status === 200){
-      localStorage.setItem('auth', 'yes')
+      sessionStorage.setItem('auth', 'yes')
       navigate("/")
     } else{
       alert('Contraseña o usuario incorrecto');

@@ -29,7 +29,7 @@ export default function Navbar() {
     };
 
     const handleClic2 = () => {
-        localStorage.clear()
+        sessionStorage.clear()
         navigate("/login")
     };
 

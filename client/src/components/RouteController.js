@@ -6,7 +6,7 @@ const RouteController = ({ componet: Componet, ...rest }) => {
     const [isAuth, setIsAuth] = useState(true)
 
     const init = () => {
-        const auth = localStorage.getItem('auth')
+        const auth = sessionStorage.getItem('auth')
 
         if (auth === null) {
             setIsAuth(false)

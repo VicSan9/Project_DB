@@ -175,7 +175,7 @@ export default function Search() {
                                                 <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">CC</StyledTableCell>
                                                 <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Nombre</StyledTableCell>
                                                 <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Dirección</StyledTableCell>
-                                                <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Telefono</StyledTableCell>
+                                                <StyledTableCell style={{ backgroundColor: "#484848" }} align="right">Teléfono</StyledTableCell>
                                                 <StyledTableCell style={{ backgroundColor: "#484848" }} align="center">Acción</StyledTableCell>
                                             </TableRow>
                                         </TableHead>
