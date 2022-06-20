@@ -30,6 +30,7 @@ export default function Navbar() {
 
     const handleClic2 = () => {
         sessionStorage.clear()
+        alert('Se ha cerrado la sección')
         navigate("/login")
     };
 
