@@ -1,3 +1,16 @@
+# How to install all the necessary modules to use the application?
+It should be installed in two parts, one for the back-end and one for the front-end.
+
+## Back-end install
+In the project directory (Projec_DB), you can run:
+
+### `npm i`
+
+## Front-end install
+In the project directory (Projec_DB\client), you can run:
+
+### `npm i`
+
 # Back-end made with express
 This project was bootstrapper with [Express](https://expressjs.com/en/guide/routing.html)
 
