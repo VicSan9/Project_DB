@@ -7,9 +7,9 @@ In the project directory (Projec_DB), you can run:
 
 ### `npm run dev`
 
-Runs the app in the development mode with nodemon.\
-nodemon is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+Runs the app in the development mode with nodemon.
 
+nodemon is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.\
 Open [http://localhost:4000](http://localhost:4000) to view it in your browser.
 
 ### `npm start`
