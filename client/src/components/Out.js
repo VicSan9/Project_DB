@@ -82,16 +82,24 @@ export default function Out() {
         })
         
         const data2 = await res2.json()
+        console.log('1:')
+        console.log(data)
+        console.log(res)
+        console.log('2:')
+        console.log(data2)
+        console.log(res2)
 
         if(!data.message){
-            alert('Transacción registrada de manera correcta')
-            return
-        } 
+            if(!data2.message){
+                alert('Transacción registrada de manera correcta')
+                return
+            }
+        }
 
         if(data2.message.code === 'P0001'){
             alert('Error: No se ha guardado la transacción debido a que has sobre pasado la cantidad de productos que hay disponibles')
             return
-        }
+        } 
 
         if(data2.message.name === 'error'){
             alert('Ha ocurrido un error, asegurese de llenar todos los campos y escribir bien los datos')
