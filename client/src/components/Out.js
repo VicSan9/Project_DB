@@ -82,12 +82,6 @@ export default function Out() {
         })
         
         const data2 = await res2.json()
-        console.log('1:')
-        console.log(data)
-        console.log(res)
-        console.log('2:')
-        console.log(data2)
-        console.log(res2)
 
         if(!data.message){
             if(!data2.message){
