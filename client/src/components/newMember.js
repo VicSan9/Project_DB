@@ -38,7 +38,7 @@ export default function NewMember() {
 
             if (!data.message) {
                 alert('Se ha editado el miembro de manera correcta')
-                navigate('/search')
+                navigate('/')
                 return
             }
 

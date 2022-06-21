@@ -9,7 +9,7 @@ export default function EditAdmin() {
     
     const [final, sedFinal] = useState({
             id_admin: 6110,
-            id_miembro: 2112,
+            id_miembro: 2110,
             user_admin: '',
             contraseña: '',
     })
