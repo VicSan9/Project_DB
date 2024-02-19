@@ -44,7 +44,7 @@ export default function Navbar() {
         <Paper 
         sx={{
             width: 326,
-            mt: 82,
+            mt: 83,
             ml: -41,
             backgroundColor: 'transparent',
             opacity: [1],
